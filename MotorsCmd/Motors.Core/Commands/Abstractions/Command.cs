@@ -13,8 +13,7 @@ namespace Motors.Core.Commands.Abstractions
         {
 
         }
-
-
+        
         public void Execute(IList<string> parameters)
         {
             throw new NotImplementedException();
