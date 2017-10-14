@@ -22,10 +22,13 @@ namespace Motors.Models
         public string Username { get; set; }
 
         [EmailAddress]
+        [Required]
         public string Mail { get; set; }
         
+        [Required]
         public string Password { get; set; }
-
+        
+        [Required]
         public string Salt { get; set; }
 
     }

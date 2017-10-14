@@ -47,6 +47,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Migrations\201710141527032_initial.cs" />
+    <Compile Include="Migrations\201710141527032_initial.Designer.cs">
+      <DependentUpon>201710141527032_initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710141614567_add required field user.cs" />
+    <Compile Include="Migrations\201710141614567_add required field user.Designer.cs">
+      <DependentUpon>201710141614567_add required field user.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MotorSystemContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -60,6 +68,14 @@
       <Project>{766ed3eb-966d-4e54-97bc-fe0ba56101cb}</Project>
       <Name>Motors.Models</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201710141527032_initial.resx">
+      <DependentUpon>201710141527032_initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710141614567_add required field user.resx">
+      <DependentUpon>201710141614567_add required field user.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

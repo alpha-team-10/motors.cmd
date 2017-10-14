@@ -16,6 +16,6 @@ namespace Motors.Data
 
         }
 
-        IDbSet<User> Users { get; set; } 
+        public IDbSet<User> Users { get; set; } 
     }
 }
