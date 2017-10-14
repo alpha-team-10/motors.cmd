@@ -40,14 +40,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\Abstractions\Command.cs" />
+    <Compile Include="Commands\Contracts\ICommand.cs" />
     <Compile Include="Contracts\IEngine.cs" />
     <Compile Include="Engine.cs" />
+    <Compile Include="Factories\Contracts\ICommandFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Providers\ConsoleInputProviders\CommentInputProvider.cs" />
+    <Compile Include="Providers\ConsoleInputProviders\OfferInputProvider.cs" />
+    <Compile Include="Providers\ConsoleInputProviders\UserInputProvider.cs" />
+    <Compile Include="Providers\ConsoleReader.cs" />
+    <Compile Include="Providers\ConsoleWriter.cs" />
+    <Compile Include="Providers\ConsoleInputProviders\Contracts\IInputProvider.cs" />
+    <Compile Include="Providers\Contracts\IReader.cs" />
+    <Compile Include="Providers\Contracts\IWriter.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Commands\" />
-    <Folder Include="Factories\" />
-    <Folder Include="Providers\" />
+    <Folder Include="Commands\Adding\" />
+    <Folder Include="Commands\Deleting\" />
+    <Folder Include="Commands\Listing\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

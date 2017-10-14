@@ -1,4 +1,4 @@
-﻿using Motors.Core.Core.Contracts;
+﻿using Motors.Core.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
