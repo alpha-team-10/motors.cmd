@@ -10,6 +10,10 @@ namespace Motors.Models
 {
     public class User
     {
+        private User()
+        {
+        }
+
         public int Id { get; set; }
 
         [Required]

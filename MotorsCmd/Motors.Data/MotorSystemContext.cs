@@ -10,7 +10,7 @@ namespace Motors.Data
 {
     public class MotorSystemContext : DbContext
     {
-        protected MotorSystemContext()
+        public MotorSystemContext()
             :base("MotorSystem")
         {
 
