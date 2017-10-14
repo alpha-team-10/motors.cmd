@@ -47,11 +47,15 @@
     <Compile Include="Factories\Contracts\ICommandFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ConsoleInputProviders\CommentInputProvider.cs" />
+    <Compile Include="Providers\ConsoleInputProviders\Contracts\ICommentInputProvider.cs" />
+    <Compile Include="Providers\ConsoleInputProviders\Contracts\IOfferInputProvider.cs" />
+    <Compile Include="Providers\ConsoleInputProviders\Contracts\IUserInputProvider.cs" />
+    <Compile Include="Providers\ConsoleInputProviders\Contracts\IMotorcycleInputProvider.cs" />
+    <Compile Include="Providers\ConsoleInputProviders\MotorcycleInputProvider.cs" />
     <Compile Include="Providers\ConsoleInputProviders\OfferInputProvider.cs" />
     <Compile Include="Providers\ConsoleInputProviders\UserInputProvider.cs" />
     <Compile Include="Providers\ConsoleReader.cs" />
     <Compile Include="Providers\ConsoleWriter.cs" />
-    <Compile Include="Providers\ConsoleInputProviders\Contracts\IInputProvider.cs" />
     <Compile Include="Providers\Contracts\IReader.cs" />
     <Compile Include="Providers\Contracts\IWriter.cs" />
   </ItemGroup>

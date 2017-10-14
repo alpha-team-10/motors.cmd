@@ -8,6 +8,6 @@ namespace Motors.Core.Providers.Contracts.ConsoleInputProviders
 {
     public interface IMotorcycleInputProvider
     {
-        IList<string> GetMotorcycleInput();
+        IList<string> CreateMotorcycleInput();
     }
 }

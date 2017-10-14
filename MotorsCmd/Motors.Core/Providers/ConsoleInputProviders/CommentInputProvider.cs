@@ -9,17 +9,17 @@ namespace Motors.Core.Providers.ConsoleInputProviders
 {
     public class CommentInputProvider : ICommentInputProvider
     {
-        public IList<string> CreateComment()
+        public IList<string> CreateCommentInput()
         {
             throw new NotImplementedException();
         }
 
-        public IList<string> RemoveComment()
+        public IList<string> RemoveCommentInput()
         {
             throw new NotImplementedException();
         }
 
-        public IList<string> UpdateComment()
+        public IList<string> UpdateCommentInput()
         {
             throw new NotImplementedException();
         }

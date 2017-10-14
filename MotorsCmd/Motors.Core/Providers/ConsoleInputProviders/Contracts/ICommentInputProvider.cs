@@ -8,9 +8,9 @@ namespace Motors.Core.Providers.ConsoleInputProviders.Contracts
 {
     public interface ICommentInputProvider
     {
-        IList<string> CreateComment();
-        IList<string> UpdateComment();
-        IList<string> RemoveComment();
+        IList<string> CreateCommentInput();
+        IList<string> UpdateCommentInput();
+        IList<string> RemoveCommentInput();
 
     }
 }
