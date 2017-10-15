@@ -22,5 +22,9 @@ namespace Motors.Data
 
         public IDbSet<Model> Models { get; set; }
 
+        public IDbSet<Offer> Offers { get; set; }
+
+        public IDbSet<Comment> Commets { get; set; }
+
     }
 }

@@ -11,7 +11,7 @@ namespace Motors.Models
         public int Id { get; set; }
 
         [Required]
-        [StringLength(25, MinimumLength = 5, ErrorMessage = "The Manufacturer's name length cannot be less than 2 or more than 15 symbols long.")]
+        [StringLength(15, MinimumLength = 2, ErrorMessage = "The Manufacturer's name length cannot be less than 2 or more than 15 symbols long.")]
         public string Name { get; set; }
 
         public override string ToString()
