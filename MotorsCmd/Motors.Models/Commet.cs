@@ -8,6 +8,11 @@ namespace Motors.Models
         {
         }
 
+        public Comment(string content)
+        {
+            this.Content = content;
+        }
+
         public int Id { get; set; }
 
         public int? OfferId { get; set; }
