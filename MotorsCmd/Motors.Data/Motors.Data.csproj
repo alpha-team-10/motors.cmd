@@ -55,6 +55,10 @@
     <Compile Include="Migrations\201710141614567_add required field user.Designer.cs">
       <DependentUpon>201710141614567_add required field user.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710151151086_Manufacturer and Models added.cs" />
+    <Compile Include="Migrations\201710151151086_Manufacturer and Models added.Designer.cs">
+      <DependentUpon>201710151151086_Manufacturer and Models added.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MotorSystemContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -75,6 +79,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710141614567_add required field user.resx">
       <DependentUpon>201710141614567_add required field user.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710151151086_Manufacturer and Models added.resx">
+      <DependentUpon>201710151151086_Manufacturer and Models added.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

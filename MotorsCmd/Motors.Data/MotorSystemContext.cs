@@ -16,6 +16,11 @@ namespace Motors.Data
 
         }
 
-        public IDbSet<User> Users { get; set; } 
+        public IDbSet<User> Users { get; set; }
+
+        public IDbSet<Manufacturer> Manufacturers { get; set; }
+
+        public IDbSet<Model> Models { get; set; }
+
     }
 }
