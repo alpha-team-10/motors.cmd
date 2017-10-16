@@ -12,9 +12,9 @@ namespace Motors.Models
 
         public int Id { get; set; }
 
-        //public int? MotorcycleId { get; set; }
+        public int? MotorcycleId { get; set; }
 
-        //public virtual Motorcycle Motorcycle { get; set; }
+        public virtual Motorcycle Motorcycle { get; set; }
 
         public int? UserId { get; set; }
 
@@ -30,7 +30,7 @@ namespace Motors.Models
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            //sb.AppendLine(this.Motorcycle.toString());
+            sb.AppendLine(this.Motorcycle.ToString());
             sb.AppendLine(this.Price.ToString());
             sb.AppendLine("Posted on: " + this.StartDate);
             sb.AppendLine("Expire on: " + this.ExpireDate);
