@@ -47,6 +47,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstractions\IComment.cs" />
+    <Compile Include="Abstractions\IManufacturer.cs" />
+    <Compile Include="Abstractions\IModel.cs" />
+    <Compile Include="Abstractions\IOffer.cs" />
     <Compile Include="Commet.cs" />
     <Compile Include="Manufacturer.cs" />
     <Compile Include="Model.cs" />

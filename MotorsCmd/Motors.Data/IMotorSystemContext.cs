@@ -1,6 +1,6 @@
 ﻿using Motors.Models;
 using System.Data.Entity;
-
+ 
 namespace Motors.Data
 {
     public interface IMotorSystemContext

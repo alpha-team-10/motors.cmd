@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IMotorSystemContext.cs" />
     <Compile Include="Migrations\201710141527032_initial.cs" />
     <Compile Include="Migrations\201710141527032_initial.Designer.cs">
       <DependentUpon>201710141527032_initial.cs</DependentUpon>

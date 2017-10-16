@@ -1,10 +1,11 @@
-﻿using System;
+﻿using Motors.Models.Abstractions;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace Motors.Models
 {
-    public class Offer
+    public class Offer : IOffer
     {
         public Offer()
         {
