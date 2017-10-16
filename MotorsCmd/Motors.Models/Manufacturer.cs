@@ -1,9 +1,8 @@
-﻿using Motors.Models.Abstractions;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Motors.Models
 {
-    public class Manufacturer : IManufacturer
+    public class Manufacturer
     {
         public Manufacturer()
         {
