@@ -8,6 +8,6 @@ namespace Motors.Core.Commands.Contracts
 {
     public interface ICommand
     {
-        void Execute(IList<string> parameters);
+        string Execute();
     }
 }

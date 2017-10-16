@@ -11,18 +11,9 @@ namespace Motors.Core.Commands
 {
     public class HelpCommand : ICommand
     {
-        private readonly IWriter writer;
-
-        public HelpCommand(IWriter writer)
+        public string Execute()
         {
-            Guard.WhenArgument(writer, "writer").IsNull().Throw();
-
-            this.writer = writer;
-        }
-
-        public void Execute(IList<string> parameters = null)
-        {
-            writer.Write("help text for later");
+           return "help text for later";
         }
     }
 }

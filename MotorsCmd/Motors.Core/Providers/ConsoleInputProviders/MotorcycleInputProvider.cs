@@ -9,6 +9,8 @@ namespace Motors.Core.Providers.ConsoleInputProviders
 {
     public class MotorcycleInputProvider : IMotorcycleInputProvider
     {
+
+
         public IList<string> CreateMotorcycleInput()
         {
             throw new NotImplementedException();

@@ -1,0 +1,57 @@
+<manufacturers>
+    <manufacturer>
+        <name>BMW</name>
+        <models>
+            <model>310</model>
+            <model>520</model>
+            <model>M5</model>
+            <model>X6</model>
+            <model>Z4</model>
+            <model>Alpina</model>
+        </models>
+    </manufacturer>
+    <manufacturer>
+        <name>Alfa Romeo</name>
+        <models>
+            <model>Arna</model>
+            <model>Brera</model>
+            <model>Crosswagon</model>
+            <model>Giulia</model>
+            <model>Giulietta</model>
+            <model>GT</model>
+        </models>
+    </manufacturer>
+    <manufacturer>
+        <name>Lada</name>
+        <models>
+            <model>Niva</model>
+            <model>Kalina</model>
+            <model>21213</model>
+            <model>Oka</model>
+            <model>Priora</model>
+            <model>Samara</model>
+        </models>
+    </manufacturer>
+    <manufacturer>
+        <name>Audi</name>
+        <models>
+            <model>S7</model>
+            <model>S8</model>
+            <model>SQ5</model>
+            <model>SQ7</model>
+            <model>TT</model>
+            <model>TT Roadster</model>
+        </models>
+    </manufacturer>
+    <manufacturer>
+        <name>Maserati</name>
+        <models>
+            <model>424</model>
+            <model>Ghibli</model>
+            <model>Gransport</model>
+            <model>Granturismo</model>
+            <model>Levante</model>
+            <model>Quattroporte</model>
+        </models>
+    </manufacturer>
+</manufacturers>

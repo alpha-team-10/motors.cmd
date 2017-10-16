@@ -1,0 +1,19 @@
+[
+	{
+		name: honda,
+		models:
+		[
+			Civic,
+			accord,
+			jazz
+		]
+	},
+	{
+		name: BMW,
+		models: 
+		[
+			730,
+			M50
+		]
+	}
+]

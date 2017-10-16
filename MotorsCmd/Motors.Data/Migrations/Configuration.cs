@@ -1,10 +1,14 @@
+using Motors.Models;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Data.Entity;
+using System.Data.Entity.Migrations;
+using System.Linq;
+using System.Xml;
+
 namespace Motors.Data.Migrations
 {
-    using System;
-    using System.Data.Entity;
-    using System.Data.Entity.Migrations;
-    using System.Linq;
-
     public sealed class Configuration : DbMigrationsConfiguration<Motors.Data.MotorSystemContext>
     {
         public Configuration()
@@ -27,6 +31,11 @@ namespace Motors.Data.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+          
+
         }
+
+       
+
     }
 }

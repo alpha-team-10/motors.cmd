@@ -10,17 +10,17 @@ namespace Motors.UnitTests.Core.Commands.HelpCommandTests
     public class Execute_Should
     {
         [TestMethod]
-        public void CallWriteMethod_WhenExecuteIsCalled()
+        public void ReturnHelpMessage_WhenExecuted()
         {
             // Arrange
-            var mockedWriter = new Mock<IWriter>();
-            var helpCommand = new HelpCommand(mockedWriter.Object);
+            var helpCommand = new HelpCommand();
 
             // Act
-            helpCommand.Execute();
+            string result = helpCommand.Execute();
 
             // Assert
-            mockedWriter.Verify(w => w.Write(It.IsAny<string>()), Times.Once);
+            Assert.IsNotNull(result);
+            Assert.IsTrue(result.Length > 0);
         }
     }
 }

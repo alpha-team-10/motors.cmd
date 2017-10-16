@@ -10,23 +10,9 @@ namespace Motors.UnitTests.Core.Commands.HelpCommandTests
     public class Constructor_Should
     {
         [TestMethod]
-        public void ReturnInstance_WhenArgumentsAreValid()
+        public void ReturnInstance_WhenCalled()
         {
-            // Arrange
-            var writerMock = new Mock<IWriter>();
-
-            // Act
-            var instance = new HelpCommand(writerMock.Object);
-
-            // Assert
-            Assert.IsNotNull(instance);
-        }
-
-        [TestMethod]
-        public void ThrowArgumentNullException_WhenWriterIsNull()
-        {
-            // AAA
-            Assert.ThrowsException<ArgumentNullException>(() => new HelpCommand(null));
+            Assert.IsNotNull(new HelpCommand());
         }
     }
 }
