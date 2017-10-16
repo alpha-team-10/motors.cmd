@@ -15,7 +15,7 @@ namespace Motors.Models
         public virtual Manufacturer Manufacturer { get; set; }
 
         [Required]
-        [StringLength(25, MinimumLength = 5, ErrorMessage = "The Model's name length cannot be less than 1 or more than 10 symbols long.")]
+        [StringLength(10, MinimumLength = 1, ErrorMessage = "The Model's name length cannot be less than 1 or more than 10 symbols long.")]
         public string Name { get; set; }
 
         public override string ToString()

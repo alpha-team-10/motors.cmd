@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IMotorSystemContext.cs" />
     <Compile Include="Migrations\201710141527032_initial.cs" />
     <Compile Include="Migrations\201710141527032_initial.Designer.cs">
       <DependentUpon>201710141527032_initial.cs</DependentUpon>
@@ -59,13 +60,13 @@
     <Compile Include="Migrations\201710151151086_Manufacturer and Models added.Designer.cs">
       <DependentUpon>201710151151086_Manufacturer and Models added.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201710151841290_change manufacturer validation range.cs" />
-    <Compile Include="Migrations\201710151841290_change manufacturer validation range.Designer.cs">
-      <DependentUpon>201710151841290_change manufacturer validation range.cs</DependentUpon>
+    <Compile Include="Migrations\201710151601407_Offers and comments added.cs" />
+    <Compile Include="Migrations\201710151601407_Offers and comments added.Designer.cs">
+      <DependentUpon>201710151601407_Offers and comments added.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201710151855060_change model size validation.cs" />
-    <Compile Include="Migrations\201710151855060_change model size validation.Designer.cs">
-      <DependentUpon>201710151855060_change model size validation.cs</DependentUpon>
+    <Compile Include="Migrations\201710151608226_Model and manufacturer restrictions fixed.cs" />
+    <Compile Include="Migrations\201710151608226_Model and manufacturer restrictions fixed.Designer.cs">
+      <DependentUpon>201710151608226_Model and manufacturer restrictions fixed.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MotorSystemContext.cs" />
@@ -91,11 +92,12 @@
     <EmbeddedResource Include="Migrations\201710151151086_Manufacturer and Models added.resx">
       <DependentUpon>201710151151086_Manufacturer and Models added.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201710151841290_change manufacturer validation range.resx">
-      <DependentUpon>201710151841290_change manufacturer validation range.cs</DependentUpon>
+
+    <EmbeddedResource Include="Migrations\201710151601407_Offers and comments added.resx">
+      <DependentUpon>201710151601407_Offers and comments added.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201710151855060_change model size validation.resx">
-      <DependentUpon>201710151855060_change model size validation.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201710151608226_Model and manufacturer restrictions fixed.resx">
+      <DependentUpon>201710151608226_Model and manufacturer restrictions fixed.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -46,6 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\Adding\CreateCommentCommand.cs" />
+    <Compile Include="Commands\Adding\CreateMotorCommand.cs" />
+    <Compile Include="Commands\Adding\CreateOfferCommand.cs" />
     <Compile Include="Commands\Contracts\ICommand.cs" />
     <Compile Include="Commands\HelpCommand.cs" />
     <Compile Include="Contracts\IEngine.cs" />
@@ -71,12 +74,17 @@
     <Compile Include="Providers\Contracts\IWriter.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Commands\Adding\" />
     <Folder Include="Commands\Deleting\" />
     <Folder Include="Commands\Listing\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Motors.Data\Motors.Data.csproj">
+      <Project>{854FC528-AF74-442B-B783-4519C2F16753}</Project>
+      <Name>Motors.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
