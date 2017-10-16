@@ -1,8 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Motors.Models.Abstractions;
+using System.ComponentModel.DataAnnotations;
 
 namespace Motors.Models
 {
-    public class Comment
+    public class Comment : IComment
     {
         public Comment()
         {

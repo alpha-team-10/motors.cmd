@@ -1,17 +1,32 @@
-﻿using Motors.Core.Commands.Contracts;
-using System;
+﻿using Bytes2you.Validation;
+using Motors.Core.Commands.Contracts;
+using Motors.Core.Providers.Contracts;
+using Motors.Data;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Motors.Core.Commands.Adding
 {
     public class CreateOfferCommand : ICommand
     {
+        private readonly IMotorSystemContext context;
+        //private readonly ICommandFactory factory;
+        private readonly IWriter writer;
+
+        public CreateOfferCommand(IMotorSystemContext context/*, ICommandFactory factory*/, IWriter writer)
+        {
+            Guard.WhenArgument(context, "context").IsNull().Throw();
+            //Guard.WhenArgument(factory, "factory").IsNull().Throw();
+            Guard.WhenArgument(writer, "writer").IsNull().Throw();
+
+
+            this.context = context;
+            //this.factory = factory;
+            this.writer = writer;
+        }
+
         public void Execute(IList<string> parameters)
         {
-            throw new NotImplementedException();
+            writer.Write("Offer with ID" +/*{this.context.Offer.Count-1}*/ "was created.");
         }
     }
 }
