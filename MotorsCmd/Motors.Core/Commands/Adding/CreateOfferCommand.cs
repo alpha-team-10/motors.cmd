@@ -24,9 +24,9 @@ namespace Motors.Core.Commands.Adding
             this.writer = writer;
         }
 
-        public void Execute(IList<string> parameters)
+        public string Execute()
         {
-            writer.Write("Offer with ID" +/*{this.context.Offer.Count-1}*/ "was created.");
+            return "Offer with ID" +/*{this.context.Offer.Count-1}*/ "was created.";
         }
     }
 }

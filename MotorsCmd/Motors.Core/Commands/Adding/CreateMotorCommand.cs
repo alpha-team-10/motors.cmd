@@ -23,9 +23,9 @@ namespace Motors.Core.Commands.Adding
             this.writer = writer;
         }
 
-        public void Execute(IList<string> parameters)
+        public string Execute()
         {
-            writer.Write("Motorcycle with ID" +/*{this.context.Motorcycle.Count-1}*/ "was created.");
+            return "Motorcycle with ID" +/*{this.context.Motorcycle.Count-1}*/ "was created.";
         }
     }
 }

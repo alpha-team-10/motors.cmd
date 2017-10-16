@@ -23,19 +23,8 @@ namespace Motors.Core.Commands.Adding
             //this.factory = factory;
             this.writer = writer;
         }
-        public void Execute(IList<string> parameters)
+        public string Execute()
         {
-            string content;
-
-            try
-            {
-                content = parameters[0];
-            }
-            catch
-            {
-                throw new ArgumentException("Failed to parse CreateComment command parameters.");
-            }
-
             //var comment = this.factory.CreateComment(content);
             //this.context.Commets.Add(comment);
 
@@ -48,7 +37,7 @@ namespace Motors.Core.Commands.Adding
                 Console.WriteLine("Failed to save comment in the database");
             }
 
-            writer.Write("Comment with ID" +/*{this.context.Commets.Count-1}*/ "was created.");
+            return "Comment with ID" +/*{this.context.Commets.Count-1}*/ "was created.";
         }
     }
 }
