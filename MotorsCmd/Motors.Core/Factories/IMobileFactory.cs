@@ -10,12 +10,12 @@ namespace Motors.Core.Factories
 {
     public interface IMobileFactory
     {
-        IUser RegisterUser(string username, string password, string mail, string salt);
+        User CreateUser(string username, string password, string mail, string salt);
 
-        IOffer CreateOffer(decimal price, string startDate, string expireDate);
+        Offer CreateOffer(decimal price, string startDate, string expireDate);
 
         Comment CreateComment(string content);
 
-        IMotorcycle CreateMotorCycle(int power, int category, string productionDate, decimal kms);
+        Motorcycle CreateMotorCycle(int power, int category, string productionDate, decimal kms);
     }
 }

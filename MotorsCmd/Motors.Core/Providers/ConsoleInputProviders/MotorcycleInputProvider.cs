@@ -12,6 +12,7 @@ namespace Motors.Core.Providers.ConsoleInputProviders
         public IList<string> CreateMotorcycleInput()
         {
             throw new NotImplementedException();
+            //Console.ReadLine(); ???
         }
     }
 }

@@ -11,8 +11,6 @@ namespace Motors.Core.Providers.ConsoleInputProviders
     public class UserInputProvider : IUserInputProvider
     {
 
-        private IList<IUser> users;
-
         public IList<string> LoginUserInput()
         {
             throw new NotImplementedException();
