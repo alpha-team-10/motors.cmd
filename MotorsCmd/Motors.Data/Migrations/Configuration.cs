@@ -34,7 +34,7 @@ namespace Motors.Data.Migrations
             //
 
             //ExtractFromJSON();
-            ExtractFromXML();
+            // ExtractFromXML();
 
         }
 
@@ -44,8 +44,7 @@ namespace Motors.Data.Migrations
             if (!context.Manufacturers.Any() && !context.Models.Any())
             {
                 XmlDocument document = new XmlDocument();
-                var appDataPath = AppDomain.CurrentDomain.GetData("/../../../").ToString();
-                var filePath = Path.Combine(appDataPath, "raw-data", "data.xml");
+                var filePath = ""; //= HostingEnvironment.MapPath("~/Content/File.txt");
 
                 document.Load(filePath);
                 XmlElement root = document["manufacturers"];
