@@ -29,7 +29,7 @@ namespace Motors.Core.Commands.Listing
             // get all offers with min details
             // collect or return result
 
-            return "";
+            return "nqkvi oferti";
         }
     }
 }

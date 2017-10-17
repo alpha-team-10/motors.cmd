@@ -50,6 +50,7 @@
     <Compile Include="Commands\Adding\CreateMotorCommand.cs" />
     <Compile Include="Commands\Adding\CreateOfferCommand.cs" />
     <Compile Include="Commands\Contracts\ICommand.cs" />
+    <Compile Include="Commands\Deleting\DeleteOfferCommand.cs" />
     <Compile Include="Commands\HelpCommand.cs" />
     <Compile Include="Commands\Listing\ListOffersCommand.cs" />
     <Compile Include="Contracts\IEngine.cs" />
@@ -75,9 +76,7 @@
     <Compile Include="Providers\Contracts\IReader.cs" />
     <Compile Include="Providers\Contracts\IWriter.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Commands\Deleting\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
