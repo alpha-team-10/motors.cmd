@@ -31,8 +31,7 @@ namespace Motors.Core.Providers.ConsoleInputProviders
             string id = Console.ReadLine();
             input.Add(id);
 
-            return input;
-            
+            return input;   
         }
 
         public IList<string> UpdateOfferInput()

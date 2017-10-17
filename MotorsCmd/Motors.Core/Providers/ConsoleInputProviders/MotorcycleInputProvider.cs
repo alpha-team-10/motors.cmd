@@ -9,12 +9,19 @@ namespace Motors.Core.Providers.ConsoleInputProviders
 {
     public class MotorcycleInputProvider : IMotorcycleInputProvider
     {
-
-
         public IList<string> CreateMotorcycleInput()
         {
             throw new NotImplementedException();
-            //Console.ReadLine(); ???
+        }
+
+        public IList<string> RemoveMotorcycleInput()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IList<string> UpdateMotorcycleInput()
+        {
+            throw new NotImplementedException();
         }
     }
 }

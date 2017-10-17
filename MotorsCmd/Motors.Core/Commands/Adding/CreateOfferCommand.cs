@@ -22,6 +22,8 @@ namespace Motors.Core.Commands.Adding
             this.context = context;
             //this.factory = factory;
             this.writer = writer;
+
+
         }
 
         public string Execute()
