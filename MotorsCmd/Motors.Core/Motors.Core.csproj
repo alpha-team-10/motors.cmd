@@ -51,6 +51,7 @@
     <Compile Include="Commands\Adding\CreateOfferCommand.cs" />
     <Compile Include="Commands\Contracts\ICommand.cs" />
     <Compile Include="Commands\HelpCommand.cs" />
+    <Compile Include="Commands\Listing\ListOffersCommand.cs" />
     <Compile Include="Contracts\IEngine.cs" />
     <Compile Include="Engine.cs" />
     <Compile Include="Factories\CommandFactory.cs" />
@@ -75,7 +76,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Commands\Deleting\" />
-    <Folder Include="Commands\Listing\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -10,18 +10,15 @@ namespace Motors.Core.Commands.Adding
     public class CreateCommentCommand : ICommand
     {
         private readonly IMotorSystemContext context;
-        //private readonly ICommandFactory factory;
-        private readonly IWriter writer;
+        //private readonly SOMEMODELFACTORY factory;
 
-        public CreateCommentCommand(IMotorSystemContext context/*, ICommandFactory factory*/, IWriter writer)
+        public CreateCommentCommand(IMotorSystemContext context/*, SOMEMODELFACTORY factory*/)
         {
             Guard.WhenArgument(context, "context").IsNull().Throw();
             //Guard.WhenArgument(factory, "factory").IsNull().Throw();
-            Guard.WhenArgument(writer, "writer").IsNull().Throw();
-
+            
             this.context = context;
             //this.factory = factory;
-            this.writer = writer;
         }
         public string Execute()
         {
