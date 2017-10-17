@@ -21,5 +21,7 @@ namespace Motors.Data
 
         public IDbSet<Comment> Commets { get; set; }
 
+        public IDbSet<Motorcycle> Motorcycles { get; set; }
+
     }
 }

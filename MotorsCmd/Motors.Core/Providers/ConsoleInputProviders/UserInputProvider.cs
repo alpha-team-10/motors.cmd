@@ -1,4 +1,5 @@
-﻿using Motors.Core.Providers.ConsoleInputProviders.Contracts;
+﻿using Motors.Core.Contracts;
+using Motors.Core.Providers.ConsoleInputProviders.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,7 @@ namespace Motors.Core.Providers.ConsoleInputProviders
 {
     public class UserInputProvider : IUserInputProvider
     {
+
         public IList<string> LoginUserInput()
         {
             throw new NotImplementedException();
