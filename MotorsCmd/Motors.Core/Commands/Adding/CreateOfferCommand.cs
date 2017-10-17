@@ -28,6 +28,7 @@ namespace Motors.Core.Commands.Adding
             this.context = context;
             //this.factory = factory;
             this.offerInputProvider = offerInputProvider;
+
         }
 
         public string Execute()

@@ -51,7 +51,12 @@
     <Compile Include="Commands\Adding\CreateMotorCommand.cs" />
     <Compile Include="Commands\Adding\CreateOfferCommand.cs" />
     <Compile Include="Commands\Contracts\ICommand.cs" />
+    <Compile Include="Commands\Deleting\DeleteCommentCommand.cs" />
+    <Compile Include="Commands\Deleting\DeleteMotorCommand.cs" />
     <Compile Include="Commands\Deleting\DeleteOfferCommand.cs" />
+    <Compile Include="Commands\Editing\EditingCommentCommand.cs" />
+    <Compile Include="Commands\Editing\EditingMotorCommand.cs" />
+    <Compile Include="Commands\Editing\EditingOfferCommand.cs" />
     <Compile Include="Commands\HelpCommand.cs" />
     <Compile Include="Commands\Listing\ListOffersCommand.cs" />
     <Compile Include="Contracts\IEngine.cs" />

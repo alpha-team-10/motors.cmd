@@ -2,15 +2,16 @@
 using Motors.Core.Commands.Contracts;
 using Motors.Core.Providers.ConsoleInputProviders.Contracts;
 using Motors.Data;
+using System;
 
-namespace Motors.Core.Commands.Deleting
+namespace Motors.Core.Commands.Editing
 {
-    public class DeleteOfferCommand : ICommand
+    public class EditingOfferCommand : ICommand
     {
         private readonly IMotorSystemContext motorSystemContext;
         private readonly IOfferInputProvider offerInputProvider;
 
-        public DeleteOfferCommand(IMotorSystemContext context, IOfferInputProvider offerInputProvider)
+        public EditingOfferCommand(IMotorSystemContext context, IOfferInputProvider offerInputProvider)
         {
             Guard.WhenArgument(context, "context").IsNull().Throw();
             Guard.WhenArgument(offerInputProvider, "offerInputProvider").IsNull().Throw();
@@ -22,10 +23,9 @@ namespace Motors.Core.Commands.Deleting
         public string Execute()
         {
             var input = this.offerInputProvider.RemoveOfferInput();
-            var offerToDeleteId = input[0];
-            // find and delete offer with such id
+            var offerToEditId = input[0];
 
-            return $"Offer with {offerToDeleteId} was deleted!";
+            return $"Offer with ID: {offerToEditId} was edited";
         }
     }
 }

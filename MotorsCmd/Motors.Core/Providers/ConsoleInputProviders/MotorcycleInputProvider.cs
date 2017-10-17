@@ -34,7 +34,7 @@ namespace Motors.Core.Providers.ConsoleInputProviders
 
             var modelsAndManufacturers = this.context.Models
                 .GroupBy(m => m.Manufacturer).ToList();
-            
+
             this.writer.Write("Manufacturer: ");
             for (int i = 0; i < modelsAndManufacturers.Count; i++)
             {
@@ -50,10 +50,10 @@ namespace Motors.Core.Providers.ConsoleInputProviders
                 this.writer.Write($"{i}. {modelsOption[i].Name}");
             }
             int selectedModel = int.Parse(this.reader.Read());
-            
+
             var manufId = modelsAndManufacturers[selectedManufacturer].Key.Id.ToString();
             var modelId = modelsOption[selectedModel].Id.ToString();
-            
+
             this.writer.Write("Year: ");
             var year = this.reader.Read();
 
@@ -63,9 +63,20 @@ namespace Motors.Core.Providers.ConsoleInputProviders
             this.writer.Write("Kms: ");
             var kms = this.reader.Read();
 
-            input.AddRange(new string[] {manufId, modelId, year, power, kms });
+            input.AddRange(new string[] { manufId, modelId, year, power, kms });
 
             return input;
+        }
+
+        public IList<string> RemoveMotorcycleInput()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IList<string> UpdateMotorcycleInput()
+        {
+
+            throw new NotImplementedException();
         }
     }
 }
