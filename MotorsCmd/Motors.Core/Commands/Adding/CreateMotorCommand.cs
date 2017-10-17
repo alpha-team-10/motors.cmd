@@ -3,6 +3,7 @@ using Motors.Core.Commands.Contracts;
 using Motors.Core.Providers.Contracts;
 using Motors.Core.Providers.Contracts.ConsoleInputProviders;
 using Motors.Data;
+using Motors.Models;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -31,7 +32,8 @@ namespace Motors.Core.Commands.Adding
         {
             List<string> input = motorcycleInputProvider.CreateMotorcycleInput().ToList();
             // create the motor with input, add it ot database
-
+            // var motor = modefactory.createMotor(input)
+            // database.motors.add(motor);
             return "Motorcycle with ID" +/*{this.context.Motorcycle.Count-1}*/ "was created.";
         }
     }

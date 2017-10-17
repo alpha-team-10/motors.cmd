@@ -8,6 +8,7 @@ using Ninject;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,19 +24,21 @@ namespace Motors.ConsoleClient
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<MotorSystemContext, Configuration>());
 
             var engine = kernel.Get<IEngine>();
+            ExtractFromXML();
             engine.Run();
             
-            //ExtractModels();
 
         }
-
-        private static void ExtractModels()
+        private static void ExtractFromXML()
         {
             MotorSystemContext context = new MotorSystemContext();
             if (!context.Manufacturers.Any() && !context.Models.Any())
             {
                 XmlDocument document = new XmlDocument();
-                document.Load("./../../../raw-data/data.xml");
+                var appDataPath = AppDomain.CurrentDomain.GetData("/../../../").ToString();
+                var filePath = Path.Combine(appDataPath, "raw-data", "data.xml");
+
+                document.Load(filePath);
                 XmlElement root = document["manufacturers"];
 
                 foreach (XmlNode xmlManuf in root.ChildNodes)
@@ -46,7 +49,7 @@ namespace Motors.ConsoleClient
                         Name = manufacturerName
                     };
                     context.Manufacturers.Add(newManufacturer);
-
+                    context.SaveChanges();
                     foreach (XmlNode xmlModel in xmlManuf["models"].ChildNodes)
                     {
                         var modelName = xmlModel.InnerText;
@@ -64,5 +67,6 @@ namespace Motors.ConsoleClient
                 context.SaveChanges();
             }
         }
+
     }
 }

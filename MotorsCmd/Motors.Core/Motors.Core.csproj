@@ -50,6 +50,7 @@
     <Compile Include="Commands\Adding\CreateMotorCommand.cs" />
     <Compile Include="Commands\Adding\CreateOfferCommand.cs" />
     <Compile Include="Commands\Contracts\ICommand.cs" />
+    <Compile Include="Commands\Deleting\DeleteOfferCommand.cs" />
     <Compile Include="Commands\HelpCommand.cs" />
     <Compile Include="Commands\Listing\ListOffersCommand.cs" />
     <Compile Include="Contracts\IEngine.cs" />
@@ -74,9 +75,7 @@
     <Compile Include="Providers\Contracts\IReader.cs" />
     <Compile Include="Providers\Contracts\IWriter.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Commands\Deleting\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
@@ -84,6 +83,10 @@
     <ProjectReference Include="..\Motors.Data\Motors.Data.csproj">
       <Project>{854FC528-AF74-442B-B783-4519C2F16753}</Project>
       <Name>Motors.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motors.Models\Motors.Models.csproj">
+      <Project>{766ED3EB-966D-4E54-97BC-FE0BA56101CB}</Project>
+      <Name>Motors.Models</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

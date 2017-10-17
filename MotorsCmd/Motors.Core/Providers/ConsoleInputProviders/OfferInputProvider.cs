@@ -26,7 +26,13 @@ namespace Motors.Core.Providers.ConsoleInputProviders
 
         public IList<string> RemoveOfferInput()
         {
-            throw new NotImplementedException();
+            List<string> input = new List<string>();
+            Console.Write("ID of offer to delete: ");
+            string id = Console.ReadLine();
+            input.Add(id);
+
+            return input;
+            
         }
 
         public IList<string> UpdateOfferInput()
