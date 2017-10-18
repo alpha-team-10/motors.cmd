@@ -34,21 +34,56 @@ namespace Motors.Core.Commands.Adding
             this.userModel = userModel;
             this.memCache = memCache;
         }
+        
+        private string GenerateSHA256Hash(string input, string salt)
+        {
+            byte[] bytes = System.Text.Encoding.UTF8.GetBytes(input + salt);
+            System.Security.Cryptography.SHA256Managed sha256hashstring =
+                new System.Security.Cryptography.SHA256Managed();
+            byte[] hash = sha256hashstring.ComputeHash(bytes);
+
+            return Convert.ToBase64String(hash);
+        }
 
         public string Execute()
         {
             var userInput = this.user.RegisterUserInput();
 
-
             var username = userInput[0];
             var password = userInput[1];
             var mail = userInput[2];
 
-            var user = userModel.CreateUser(userInput[0], userInput[1], userInput[2], "fefsergfdwesrgd");
+            var salt = Guid.NewGuid().ToString();
+            string saltedPass = this.GenerateSHA256Hash(password, salt);
+            
+            var user = userModel.CreateUser(username, saltedPass, mail, salt);
 
             context.Users.Add(user);
+
             context.SaveChanges();
             this.memCache.MemoryCache["user"] = user;
+            try
+            {
+                context.SaveChanges();
+            }
+            catch (System.Data.Entity.Validation.DbEntityValidationException dbEx)
+            {
+                Exception raise = dbEx;
+                foreach (var validationErrors in dbEx.EntityValidationErrors)
+                {
+                    foreach (var validationError in validationErrors.ValidationErrors)
+                    {
+                        string message = string.Format("{0}:{1}",
+                            validationErrors.Entry.Entity.ToString(),
+                            validationError.ErrorMessage);
+                        // raise a new exception nesting
+                        // the current instance as InnerException
+                        raise = new InvalidOperationException(message, raise);
+                    }
+                }
+                throw raise;
+            }
+            
 
             return $"User with username {username} was created!";
         }
