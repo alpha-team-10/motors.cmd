@@ -31,10 +31,19 @@ namespace Motors.Core.Commands.Adding
 
         public string Execute()
         {
-            List<string> input = user.RegisterUserInput().ToList();
-            
-            
-            return "User with username was created!";
+            var userInput = this.user.RegisterUserInput();
+
+
+            var username = userInput[0];
+            var password = userInput[1];
+            var mail = userInput[2];
+
+            var user = userModel.CreateUser(userInput[0], userInput[1], userInput[2], "fefsergfdwesrgd");
+
+            context.Users.Add(user);
+            context.SaveChanges();
+
+            return $"User with username {username} was created!";
         }
     }
 }

@@ -28,16 +28,16 @@ namespace Motors.Models
 
         public virtual Model Model { get; set; }
 
-        public override string ToString()
-        {
-            var sb = new StringBuilder();
-            sb.AppendLine(this.Model.Manufacturer + " " + this.Model.Name);
-            sb.AppendLine("Power: " + this.Power);           
-            sb.AppendLine("Production Date: " + this.ProductionDate);
-            sb.AppendLine("Kilometers: " + this.Kilometers);
+        //public override string ToString()
+        //{
+        //    var sb = new StringBuilder();
+        //    sb.AppendLine(this.Model.Manufacturer + " " + this.Model.Name);
+        //    sb.AppendLine("Power: " + this.Power);           
+        //    sb.AppendLine("Production Date: " + this.ProductionDate);
+        //    sb.AppendLine("Kilometers: " + this.Kilometers);
             
-            return sb.ToString();
-        }
+        //    return sb.ToString();
+        //}
 
     }
 }

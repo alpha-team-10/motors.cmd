@@ -27,7 +27,6 @@ namespace Motors.ConsoleClient
             ExtractFromXML();
             engine.Run();
             
-
         }
         private static void ExtractFromXML()
         {
@@ -35,8 +34,7 @@ namespace Motors.ConsoleClient
             if (!context.Manufacturers.Any() && !context.Models.Any())
             {
                 XmlDocument document = new XmlDocument();
-                var appDataPath = AppDomain.CurrentDomain.GetData("/../../../").ToString();
-                var filePath = Path.Combine(appDataPath, "raw-data", "data.xml");
+                string filePath = "./../../../raw-data/data.xml";
 
                 document.Load(filePath);
                 XmlElement root = document["manufacturers"];
@@ -65,8 +63,8 @@ namespace Motors.ConsoleClient
                 }
 
                 context.SaveChanges();
+                Console.WriteLine("db Populated");
             }
         }
-
     }
 }

@@ -9,5 +9,7 @@ namespace Motors.Core.Providers.Contracts.ConsoleInputProviders
     public interface IMotorcycleInputProvider
     {
         IList<string> CreateMotorcycleInput();
+        IList<string> UpdateMotorcycleInput();
+        IList<string> RemoveMotorcycleInput();
     }
 }

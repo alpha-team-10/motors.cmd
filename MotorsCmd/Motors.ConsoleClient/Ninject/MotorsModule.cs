@@ -11,6 +11,7 @@ using Motors.Core.Providers;
 using Motors.Core.Providers.ConsoleInputProviders;
 using Motors.Core.Providers.ConsoleInputProviders.Contracts;
 using Motors.Core.Providers.Contracts;
+using Motors.Core.Providers.Contracts.ConsoleInputProviders;
 using Motors.Data;
 using Ninject.Modules;
 using System;
@@ -34,17 +35,29 @@ namespace Motors.ConsoleClient.Ninject
             this.Bind<ICommandProcessor>().To<CommandProcessor>();
             this.Bind<ICommandParser>().To<CommandParser>();
 
+            // factories
             this.Bind<ICommandFactory>().To<CommandFactory>();
             this.Bind<IModelFactory>().To<ModelFactory>();
 
+            //input providers
             this.Bind<IOfferInputProvider>().To<OfferInputProvider>();
+
             this.Bind<IUserInputProvider>().To<UserInputProvider>();
 
+            this.Bind<IMotorcycleInputProvider>().To<MotorcycleInputProvider>();
+
+
+            // commands
             this.Bind<ICommand>().To<HelpCommand>().Named("help");
             this.Bind<ICommand>().To<ListOffersCommand>().Named("listoffers");
             this.Bind<ICommand>().To<DeleteOfferCommand>().Named("deleteoffer");
+
             this.Bind<ICommand>().To<CreateUserCommand>().Named("registeruser");
 
+
+
+            this.Bind<ICommand>().To<CreateOfferCommand>().Named("createoffer");
+            
 
         }
     }
