@@ -34,7 +34,7 @@ namespace Motors.Data.Migrations
             //
 
             //ExtractFromJSON();
-            // ExtractFromXML();
+            ExtractFromXML();
 
         }
 
@@ -44,7 +44,7 @@ namespace Motors.Data.Migrations
             if (!context.Manufacturers.Any() && !context.Models.Any())
             {
                 XmlDocument document = new XmlDocument();
-                var filePath = ""; //= HostingEnvironment.MapPath("~/Content/File.txt");
+                string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../../raw-data", "data.xml");
 
                 document.Load(filePath);
                 XmlElement root = document["manufacturers"];
@@ -56,15 +56,12 @@ namespace Motors.Data.Migrations
                     {
                         Name = manufacturerName
                     };
-                    context.Manufacturers.Add(newManufacturer);
-                    context.SaveChanges();
                     foreach (XmlNode xmlModel in xmlManuf["models"].ChildNodes)
                     {
                         var modelName = xmlModel.InnerText;
                         var newModel = new Model()
                         {
-                            Manufacturer = context.Manufacturers
-                                .Single(m => m.Name == manufacturerName),
+                            Manufacturer = newManufacturer,
                             Name = modelName
                         };
 
@@ -73,6 +70,7 @@ namespace Motors.Data.Migrations
                 }
 
                 context.SaveChanges();
+                Console.WriteLine("models and manufacturers populated with XML");
             }
         }
     }
