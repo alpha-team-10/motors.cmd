@@ -25,9 +25,12 @@ namespace Motors.Core.Providers.ConsoleInputProviders
             string password = Console.ReadLine();
 
             Console.WriteLine("Enter Mail:");
-            string mail = Console.ReadLine();           
+            string mail = Console.ReadLine();
 
-            return new List<string> { username, password, mail };
+            Console.WriteLine("Enter your lucky number from 1 to 10 :)");
+            string salt = Console.ReadLine();
+
+            return new List<string> { username, password, mail, salt };
         }
     }
 }
