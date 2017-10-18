@@ -61,6 +61,8 @@
     <Compile Include="Commands\Editing\EditingOfferCommand.cs" />
     <Compile Include="Commands\HelpCommand.cs" />
     <Compile Include="Commands\Listing\ListOffersCommand.cs" />
+    <Compile Include="Commands\Other\LoginUserCommand.cs" />
+    <Compile Include="Commands\Other\LogoutUserCommand.cs" />
     <Compile Include="Contracts\IEngine.cs" />
     <Compile Include="Engine.cs" />
     <Compile Include="Factories\CommandFactory.cs" />
@@ -75,6 +77,8 @@
     <Compile Include="Providers\ConsoleInputProviders\Contracts\IOfferInputProvider.cs" />
     <Compile Include="Providers\ConsoleInputProviders\Contracts\IUserInputProvider.cs" />
     <Compile Include="Providers\ConsoleInputProviders\Contracts\IMotorcycleInputProvider.cs" />
+    <Compile Include="Providers\Contracts\IHelperMethods.cs" />
+    <Compile Include="Providers\HelperMethods.cs" />
     <Compile Include="Providers\ConsoleInputProviders\MotorcycleInputProvider.cs" />
     <Compile Include="Providers\ConsoleInputProviders\OfferInputProvider.cs" />
     <Compile Include="Providers\ConsoleInputProviders\UserInputProvider.cs" />

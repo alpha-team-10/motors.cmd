@@ -20,29 +20,22 @@ namespace Motors.Core.Commands.Adding
         private readonly IUserInputProvider user;
         private readonly IModelFactory userModel;
         private readonly IMemoryCacheProvider memCache;
+        private readonly IHelperMethods helpers;
 
         public CreateUserCommand(IMotorSystemContext context, IUserInputProvider user, IModelFactory userModel,
-            IMemoryCacheProvider memCache)
+            IMemoryCacheProvider memCache, IHelperMethods helpers)
         {
             Guard.WhenArgument(context, "context").IsNull().Throw();
             Guard.WhenArgument(user, "user").IsNull().Throw();
             Guard.WhenArgument(userModel, "userModel").IsNull().Throw();
             Guard.WhenArgument(memCache, "memCache").IsNull().Throw();
+            Guard.WhenArgument(helpers, "helpers").IsNull().Throw();
 
             this.context = context;
             this.user = user;
             this.userModel = userModel;
             this.memCache = memCache;
-        }
-        
-        private string GenerateSHA256Hash(string input, string salt)
-        {
-            byte[] bytes = System.Text.Encoding.UTF8.GetBytes(input + salt);
-            System.Security.Cryptography.SHA256Managed sha256hashstring =
-                new System.Security.Cryptography.SHA256Managed();
-            byte[] hash = sha256hashstring.ComputeHash(bytes);
-
-            return Convert.ToBase64String(hash);
+            this.helpers = helpers;
         }
 
         public string Execute()
@@ -54,36 +47,16 @@ namespace Motors.Core.Commands.Adding
             var mail = userInput[2];
 
             var salt = Guid.NewGuid().ToString();
-            string saltedPass = this.GenerateSHA256Hash(password, salt);
-            
+            string saltedPass = this.helpers.GenerateSHA256Hash(password, salt);
+
             var user = userModel.CreateUser(username, saltedPass, mail, salt);
 
             context.Users.Add(user);
 
             context.SaveChanges();
             this.memCache.MemoryCache["user"] = user;
-            try
-            {
-                context.SaveChanges();
-            }
-            catch (System.Data.Entity.Validation.DbEntityValidationException dbEx)
-            {
-                Exception raise = dbEx;
-                foreach (var validationErrors in dbEx.EntityValidationErrors)
-                {
-                    foreach (var validationError in validationErrors.ValidationErrors)
-                    {
-                        string message = string.Format("{0}:{1}",
-                            validationErrors.Entry.Entity.ToString(),
-                            validationError.ErrorMessage);
-                        // raise a new exception nesting
-                        // the current instance as InnerException
-                        raise = new InvalidOperationException(message, raise);
-                    }
-                }
-                throw raise;
-            }
-            
+
+            context.SaveChanges();
 
             return $"User with username {username} was created!";
         }

@@ -13,7 +13,6 @@ namespace Motors.Core.Commands.Adding
     {
         private readonly IMotorSystemContext context;
         //private readonly SOMEMODELFACTORY factory;
-        private readonly IWriter writer;
         private readonly IMotorcycleInputProvider motorcycleInputProvider;
 
         public CreateMotorCommand(IMotorSystemContext context/*, SOMEMODELFACTORY factory*/, 

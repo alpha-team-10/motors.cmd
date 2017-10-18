@@ -4,6 +4,7 @@ using Motors.Core.Commands.Adding;
 using Motors.Core.Commands.Contracts;
 using Motors.Core.Commands.Deleting;
 using Motors.Core.Commands.Listing;
+using Motors.Core.Commands.Other;
 using Motors.Core.Contracts;
 using Motors.Core.Factories;
 using Motors.Core.Factories.Contracts;
@@ -28,6 +29,9 @@ namespace Motors.ConsoleClient.Ninject
         public override void Load()
         {
             this.Bind<IMemoryCacheProvider>().To<MemoryCacheProvider>()
+                .InSingletonScope();
+
+            this.Bind<IHelperMethods>().To<HelperMethods>()
                 .InSingletonScope();
 
             this.Bind<IMotorSystemContext>().To<MotorSystemContext>();
@@ -58,8 +62,10 @@ namespace Motors.ConsoleClient.Ninject
 
             this.Bind<ICommand>().To<CreateUserCommand>().Named("registeruser");
             this.Bind<ICommand>().To<CreateOfferCommand>().Named("createoffer");
+            this.Bind<ICommand>().To<LoginUserCommand>().Named("login");
+            this.Bind<ICommand>().To<LogoutUserCommand>().Named("logout");
 
-            
+
         }
     }
 }

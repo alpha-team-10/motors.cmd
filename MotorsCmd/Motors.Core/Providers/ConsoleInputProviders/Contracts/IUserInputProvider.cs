@@ -10,5 +10,6 @@ namespace Motors.Core.Providers.ConsoleInputProviders.Contracts
     {
         IList<string> RegisterUserInput();
         IList<string> LoginUserInput();
+        IList<string> LogoutUserInput();
     }
 }
