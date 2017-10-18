@@ -1,9 +1,11 @@
 ﻿using Bytes2you.Validation;
 using Motors.Core.Contracts;
 using Motors.Core.Providers.Contracts;
+using Motors.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Caching;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -16,16 +18,19 @@ namespace Motors.Core
         private readonly IWriter writer;
         private readonly IReader reader;
         private readonly ICommandProcessor commandProcessor;
+        private readonly IMemoryCacheProvider memCache;
 
-        public Engine(IWriter writer, IReader reader, ICommandProcessor processor)
+        public Engine(IWriter writer, IReader reader, ICommandProcessor processor, IMemoryCacheProvider memCache)
         {
             Guard.WhenArgument(writer, "writer").IsNull().Throw();
             Guard.WhenArgument(reader, "reader").IsNull().Throw();
             Guard.WhenArgument(processor, "processor").IsNull().Throw();
+            Guard.WhenArgument(memCache, "memCache").IsNull().Throw();
 
             this.writer = writer;
             this.reader = reader;
             this.commandProcessor = processor;
+            this.memCache = memCache;
         }
 
         public void Run()
@@ -35,7 +40,6 @@ namespace Motors.Core
                 try
                 {
                     var commandAsString = this.reader.Read();
-
                     if (commandAsString == TerminationCommand)
                     {
                         break;

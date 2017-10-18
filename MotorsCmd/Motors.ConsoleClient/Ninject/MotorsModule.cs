@@ -17,6 +17,7 @@ using Ninject.Modules;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Caching;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -26,6 +27,9 @@ namespace Motors.ConsoleClient.Ninject
     {
         public override void Load()
         {
+            this.Bind<IMemoryCacheProvider>().To<MemoryCacheProvider>()
+                .InSingletonScope();
+
             this.Bind<IMotorSystemContext>().To<MotorSystemContext>();
 
             this.Bind<IEngine>().To<Engine>().InSingletonScope();
@@ -53,12 +57,9 @@ namespace Motors.ConsoleClient.Ninject
             this.Bind<ICommand>().To<DeleteOfferCommand>().Named("deleteoffer");
 
             this.Bind<ICommand>().To<CreateUserCommand>().Named("registeruser");
-
-
-
             this.Bind<ICommand>().To<CreateOfferCommand>().Named("createoffer");
-            
 
+            
         }
     }
 }

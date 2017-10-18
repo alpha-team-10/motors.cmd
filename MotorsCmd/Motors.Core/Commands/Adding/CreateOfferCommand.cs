@@ -16,18 +16,20 @@ namespace Motors.Core.Commands.Adding
         private readonly IMotorSystemContext context;
         private readonly IOfferInputProvider offerInputProvider;
         //private readonly IMODELFACTORY factory;
+        private readonly IMemoryCacheProvider memCache;
 
-        public CreateOfferCommand(IMotorSystemContext context/*, IMODELFACTORY factory*/, IOfferInputProvider offerInputProvider,
-            IMotorcycleInputProvider motorocycleInputProvider)
+        public CreateOfferCommand(IMotorSystemContext context/*, IMODELFACTORY factory*/, IOfferInputProvider offerInputProvider
+            , IMemoryCacheProvider memCache)
         {
             Guard.WhenArgument(context, "context").IsNull().Throw();
             //Guard.WhenArgument(factory, "factory").IsNull().Throw();
             Guard.WhenArgument(offerInputProvider, "offerInputProvider").IsNull().Throw();
-            Guard.WhenArgument(motorocycleInputProvider, "motorocycleInputProvider").IsNull().Throw();
+            Guard.WhenArgument(memCache, "memCache").IsNull().Throw();
 
             this.context = context;
             //this.factory = factory;
             this.offerInputProvider = offerInputProvider;
+            this.memCache = memCache;
 
         }
 
@@ -54,16 +56,8 @@ namespace Motors.Core.Commands.Adding
                 Power = power,
                 ProductionDate = productionDate
             };
-
-            // test user
-            var user = new User()
-            {
-                Mail = "asd1@abv.bg",
-                Password = "1234565",
-                Salt = "asfjas;lfjagjas",
-                Username = "user1"
-            };
-
+            var user = (User)this.memCache.MemoryCache["user"];
+            Console.WriteLine("From create offer: " + user.Username);
             var offer = new Offer()
             {
                 StartDate = DateTime.Now,
