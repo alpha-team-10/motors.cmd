@@ -37,13 +37,12 @@ namespace Motors.Core.Commands.Adding
 
             // var motor = this.factory.CreateMotor(input);
             // var offer = this.factory.CreateOffer(input);
-
-            int manufId = int.Parse(offerInput[0]);
-            int modelId = int.Parse(offerInput[1]);
-            DateTime productionDate = new DateTime(int.Parse(offerInput[2]));
-            int power = int.Parse(offerInput[3]);
-            decimal kms = decimal.Parse(offerInput[4]);
-            decimal price = decimal.Parse(offerInput[5]);
+            
+            int modelId = int.Parse(offerInput[0]);
+            DateTime productionDate = new DateTime(int.Parse(offerInput[1]),1,1);
+            int power = int.Parse(offerInput[2]);
+            decimal kms = decimal.Parse(offerInput[3]);
+            decimal price = decimal.Parse(offerInput[4]);
 
 
             var model = context.Models.Single(m => m.Id == modelId);
@@ -56,18 +55,28 @@ namespace Motors.Core.Commands.Adding
                 ProductionDate = productionDate
             };
 
+            // test user
+            var user = new User()
+            {
+                Mail = "asd1@abv.bg",
+                Password = "1234565",
+                Salt = "asfjas;lfjagjas",
+                Username = "user1"
+            };
+
             var offer = new Offer()
             {
                 StartDate = DateTime.Now,
                 ExpireDate = DateTime.Now.AddDays(30),
                 Motorcycle = motorcycle,
-                Price = price
+                Price = price,
+                User = user
             };
 
             context.Offers.Add(offer);
             context.SaveChanges();
             
-            return "Offer with ID" +/*{this.context.Offer.Count-1}*/ "was created.";
+            return $"Offer with ID { offer.Id} was created.";
         }
     }
 }

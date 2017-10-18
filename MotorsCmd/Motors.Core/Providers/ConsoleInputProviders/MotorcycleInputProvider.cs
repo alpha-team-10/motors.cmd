@@ -50,8 +50,7 @@ namespace Motors.Core.Providers.ConsoleInputProviders
                 this.writer.Write($"{i}. {modelsOption[i].Name}");
             }
             int selectedModel = int.Parse(this.reader.Read());
-
-            var manufId = modelsAndManufacturers[selectedManufacturer].Key.Id.ToString();
+            
             var modelId = modelsOption[selectedModel].Id.ToString();
 
             this.writer.Write("Year: ");
@@ -63,7 +62,7 @@ namespace Motors.Core.Providers.ConsoleInputProviders
             this.writer.Write("Kms: ");
             var kms = this.reader.Read();
 
-            input.AddRange(new string[] { manufId, modelId, year, power, kms });
+            input.AddRange(new string[] { modelId, year, power, kms });
 
             return input;
         }
