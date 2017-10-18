@@ -10,7 +10,7 @@ namespace Motors.Models
 {
     public class User
     {
-        private User()
+        public User()
         {
         }
 

@@ -1,5 +1,6 @@
 ﻿using Motors.Core;
 using Motors.Core.Commands;
+using Motors.Core.Commands.Adding;
 using Motors.Core.Commands.Contracts;
 using Motors.Core.Commands.Deleting;
 using Motors.Core.Commands.Listing;
@@ -34,12 +35,15 @@ namespace Motors.ConsoleClient.Ninject
             this.Bind<ICommandParser>().To<CommandParser>();
 
             this.Bind<ICommandFactory>().To<CommandFactory>();
+            this.Bind<IModelFactory>().To<ModelFactory>();
 
             this.Bind<IOfferInputProvider>().To<OfferInputProvider>();
+            this.Bind<IUserInputProvider>().To<UserInputProvider>();
 
             this.Bind<ICommand>().To<HelpCommand>().Named("help");
             this.Bind<ICommand>().To<ListOffersCommand>().Named("listoffers");
             this.Bind<ICommand>().To<DeleteOfferCommand>().Named("deleteoffer");
+            this.Bind<ICommand>().To<CreateUserCommand>().Named("registeruser");
 
 
         }

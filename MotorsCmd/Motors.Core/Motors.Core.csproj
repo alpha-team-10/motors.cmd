@@ -33,6 +33,7 @@
     <Reference Include="Bytes2you.Validation, Version=2.0.0.0, Culture=neutral, PublicKeyToken=a7d501dd757e0442, processorArchitecture=MSIL">
       <HintPath>..\packages\Bytes2you.Validation.2.0.0.0\lib\portable-win+net40+sl40+wp+Xbox40\Bytes2you.Validation.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
     <Reference Include="Ninject, Version=3.3.1.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
       <HintPath>..\packages\Ninject.3.3.1\lib\net45\Ninject.dll</HintPath>
     </Reference>
@@ -49,6 +50,7 @@
     <Compile Include="Commands\Adding\CreateCommentCommand.cs" />
     <Compile Include="Commands\Adding\CreateMotorCommand.cs" />
     <Compile Include="Commands\Adding\CreateOfferCommand.cs" />
+    <Compile Include="Commands\Adding\CreateUserCommand.cs" />
     <Compile Include="Commands\Contracts\ICommand.cs" />
     <Compile Include="Commands\Deleting\DeleteOfferCommand.cs" />
     <Compile Include="Commands\HelpCommand.cs" />
@@ -58,6 +60,7 @@
     <Compile Include="Factories\CommandFactory.cs" />
     <Compile Include="Factories\Contracts\ICommandFactory.cs" />
     <Compile Include="Factories\Contracts\IModelFactory.cs" />
+    <Compile Include="Factories\ModelFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\CommandParser.cs" />
     <Compile Include="Providers\CommandProcessor.cs" />
