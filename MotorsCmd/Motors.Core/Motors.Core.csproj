@@ -53,6 +53,7 @@
     <Compile Include="Commands\Adding\CreateOfferCommand.cs" />
     <Compile Include="Commands\Adding\CreateUserCommand.cs" />
     <Compile Include="Commands\Contracts\ICommand.cs" />
+    <Compile Include="Commands\Decorators\AuthenticationCommand.cs" />
     <Compile Include="Commands\Deleting\DeleteCommentCommand.cs" />
     <Compile Include="Commands\Deleting\DeleteMotorCommand.cs" />
     <Compile Include="Commands\Deleting\DeleteOfferCommand.cs" />
@@ -60,6 +61,7 @@
     <Compile Include="Commands\Editing\EditingMotorCommand.cs" />
     <Compile Include="Commands\Editing\EditingOfferCommand.cs" />
     <Compile Include="Commands\HelpCommand.cs" />
+    <Compile Include="Commands\Listing\ListByTypes.cs" />
     <Compile Include="Commands\Listing\ListOffersCommand.cs" />
     <Compile Include="Commands\Other\LoginUserCommand.cs" />
     <Compile Include="Commands\Other\LogoutUserCommand.cs" />

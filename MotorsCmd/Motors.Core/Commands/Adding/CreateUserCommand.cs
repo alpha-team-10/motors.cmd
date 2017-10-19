@@ -54,7 +54,7 @@ namespace Motors.Core.Commands.Adding
             context.Users.Add(user);
 
             context.SaveChanges();
-            this.memCache.MemoryCache["user"] = user;
+            this.memCache.MemoryCache["user"] = user.Id;
 
             context.SaveChanges();
 

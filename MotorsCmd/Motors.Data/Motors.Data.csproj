@@ -88,6 +88,10 @@
     <Compile Include="Migrations\201710171001245_Motorcycle added and model and manufacturer fixed.Designer.cs">
       <DependentUpon>201710171001245_Motorcycle added and model and manufacturer fixed.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710192003317_Add many offers to user.cs" />
+    <Compile Include="Migrations\201710192003317_Add many offers to user.Designer.cs">
+      <DependentUpon>201710192003317_Add many offers to user.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MotorSystemContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -120,6 +124,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710171001245_Motorcycle added and model and manufacturer fixed.resx">
       <DependentUpon>201710171001245_Motorcycle added and model and manufacturer fixed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710192003317_Add many offers to user.resx">
+      <DependentUpon>201710192003317_Add many offers to user.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

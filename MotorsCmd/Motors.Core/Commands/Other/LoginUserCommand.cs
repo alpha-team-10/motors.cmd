@@ -54,7 +54,7 @@ namespace Motors.Core.Commands.Other
 
             if(saltedPassword == userFromDb.Password)
             {
-                this.memCache.MemoryCache["user"] = userFromDb;
+                this.memCache.MemoryCache["user"] = userFromDb.Id;
                 return "Successfully logged";
             }
             else

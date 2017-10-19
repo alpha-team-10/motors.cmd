@@ -36,12 +36,12 @@ namespace Motors.Core.Commands.Other
 
             if (quit)
             {
-                this.memCache.MemoryCache["user"] = new User();
+                this.memCache.MemoryCache["user"] = -1;
                 return "See you soon ...";
             }
             else
             {
-                return $"Thanks for staying {((User)this.memCache.MemoryCache["user"]).Username}...";
+                return $"Thanks for staying ...";
             }
             
         }

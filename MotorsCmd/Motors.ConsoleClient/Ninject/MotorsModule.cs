@@ -2,6 +2,7 @@
 using Motors.Core.Commands;
 using Motors.Core.Commands.Adding;
 using Motors.Core.Commands.Contracts;
+using Motors.Core.Commands.Decorators;
 using Motors.Core.Commands.Deleting;
 using Motors.Core.Commands.Listing;
 using Motors.Core.Commands.Other;
@@ -21,6 +22,7 @@ using System.Linq;
 using System.Runtime.Caching;
 using System.Text;
 using System.Threading.Tasks;
+using Ninject;
 
 namespace Motors.ConsoleClient.Ninject
 {
@@ -60,10 +62,14 @@ namespace Motors.ConsoleClient.Ninject
             this.Bind<ICommand>().To<ListOffersCommand>().Named("listoffers");
             this.Bind<ICommand>().To<DeleteOfferCommand>().Named("deleteoffer");
 
-            this.Bind<ICommand>().To<CreateUserCommand>().Named("registeruser");
-            this.Bind<ICommand>().To<CreateOfferCommand>().Named("createoffer");
+            this.Bind<ICommand>().To<CreateUserCommand>().Named("register");
+            this.Bind<ICommand>().To<CreateOfferCommand>().Named("InnerCreateoffer");
             this.Bind<ICommand>().To<LoginUserCommand>().Named("login");
             this.Bind<ICommand>().To<LogoutUserCommand>().Named("logout");
+
+            this.Bind<ICommand>().To<AuthenticationCommand>()
+                    .Named("createoffer")
+                    .WithConstructorArgument(Kernel.Get<ICommand>("InnerCreateoffer"));
 
 
         }

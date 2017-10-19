@@ -1,4 +1,5 @@
 ﻿using Bytes2you.Validation;
+using Motors.Core.Commands.Listing;
 using Motors.Core.Providers.ConsoleInputProviders.Contracts;
 using Motors.Core.Providers.Contracts;
 using Motors.Core.Providers.Contracts.ConsoleInputProviders;
@@ -48,7 +49,19 @@ namespace Motors.Core.Providers.ConsoleInputProviders
 
         public IList<string> ListAllOffersInput()
         {
-            throw new NotImplementedException();
+            // concrete username, by model, manufacturers
+            
+            this.writer.Write("List by:");
+            foreach (ListByTypes item in Enum.GetValues(typeof(ListByTypes)))
+            {
+                this.writer.Write($"({(int)item}) {item}");
+            }
+            var choice = int.Parse(this.reader.Read());
+            this.writer.Write("Enter value: ");
+            var value = this.reader.Read();
+
+
+            return new List<string> { ((ListByTypes)choice).ToString(), value};
         }
 
         public IList<string> RemoveOfferInput()

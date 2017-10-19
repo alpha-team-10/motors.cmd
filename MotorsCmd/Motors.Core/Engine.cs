@@ -20,6 +20,8 @@ namespace Motors.Core
         private readonly ICommandProcessor commandProcessor;
         private readonly IMemoryCacheProvider memCache;
 
+        private StringBuilder sb = new StringBuilder();
+
         public Engine(IWriter writer, IReader reader, ICommandProcessor processor, IMemoryCacheProvider memCache)
         {
             Guard.WhenArgument(writer, "writer").IsNull().Throw();

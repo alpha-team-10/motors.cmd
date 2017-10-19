@@ -1,5 +1,6 @@
 ﻿using Bytes2you.Validation;
 using Motors.Core.Commands.Contracts;
+using Motors.Core.Factories.Contracts;
 using Motors.Core.Providers.ConsoleInputProviders.Contracts;
 using Motors.Core.Providers.Contracts;
 using Motors.Core.Providers.Contracts.ConsoleInputProviders;
@@ -15,19 +16,19 @@ namespace Motors.Core.Commands.Adding
     {
         private readonly IMotorSystemContext context;
         private readonly IOfferInputProvider offerInputProvider;
-        //private readonly IMODELFACTORY factory;
+        private readonly IModelFactory factory;
         private readonly IMemoryCacheProvider memCache;
 
-        public CreateOfferCommand(IMotorSystemContext context/*, IMODELFACTORY factory*/, IOfferInputProvider offerInputProvider
+        public CreateOfferCommand(IMotorSystemContext context, IModelFactory factory, IOfferInputProvider offerInputProvider
             , IMemoryCacheProvider memCache)
         {
             Guard.WhenArgument(context, "context").IsNull().Throw();
-            //Guard.WhenArgument(factory, "factory").IsNull().Throw();
+            Guard.WhenArgument(factory, "factory").IsNull().Throw();
             Guard.WhenArgument(offerInputProvider, "offerInputProvider").IsNull().Throw();
             Guard.WhenArgument(memCache, "memCache").IsNull().Throw();
 
             this.context = context;
-            //this.factory = factory;
+            this.factory = factory;
             this.offerInputProvider = offerInputProvider;
             this.memCache = memCache;
 
@@ -36,9 +37,6 @@ namespace Motors.Core.Commands.Adding
         public string Execute()
         {
             var offerInput = this.offerInputProvider.CreateOfferInput();
-
-            // var motor = this.factory.CreateMotor(input);
-            // var offer = this.factory.CreateOffer(input);
             
             int modelId = int.Parse(offerInput[0]);
             DateTime productionDate = new DateTime(int.Parse(offerInput[1]),1,1);
@@ -48,29 +46,19 @@ namespace Motors.Core.Commands.Adding
 
 
             var model = context.Models.Single(m => m.Id == modelId);
+            
+            var motor = this.factory.CreateMotorcycle(model,power,productionDate,kms);
+            int loggedUserId = int.Parse(this.memCache.MemoryCache["user"].ToString());
 
-            var motorcycle = new Motorcycle()
-            {
-                Kilometers = kms,
-                Model = model,
-                Power = power,
-                ProductionDate = productionDate
-            };
-            var user = (User)this.memCache.MemoryCache["user"];
-            Console.WriteLine("From create offer: " + user.Username);
-            var offer = new Offer()
-            {
-                StartDate = DateTime.Now,
-                ExpireDate = DateTime.Now.AddDays(30),
-                Motorcycle = motorcycle,
-                Price = price,
-                User = user
-            };
+            var user = this.context.Users.Single(u => u.Id == loggedUserId);
+            
+            var offer = this.factory.CreateOffer(user,motor,price,DateTime.Now,DateTime.Now.AddDays(30));
 
             context.Offers.Add(offer);
             context.SaveChanges();
             
-            return $"Offer with ID { offer.Id} was created.";
+            // TODO: Dispose, DateTime Provider, Tests
+            return $"Offer with ID { offer.Id} was created by USER {user.Username}.";
         }
     }
 }

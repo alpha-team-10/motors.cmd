@@ -12,6 +12,7 @@ namespace Motors.Models
     {
         public User()
         {
+            this.Offers = new HashSet<Offer>();
         }
 
         public int Id { get; set; }
@@ -31,5 +32,6 @@ namespace Motors.Models
         [Required]
         public string Salt { get; set; }
 
+        public virtual ICollection<Offer> Offers { get; set; }
     }
 }
