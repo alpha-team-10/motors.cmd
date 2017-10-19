@@ -73,12 +73,10 @@ namespace Motors.Core.Providers.ConsoleInputProviders
 
         public IList<string> RemoveOfferInput()
         {
-            List<string> input = new List<string>();
-            Console.Write("ID of offer to delete: ");
-            string id = Console.ReadLine();
-            input.Add(id);
+            this.writer.Write("ID of offer to delete: ");
+            string offerId = this.reader.Read();
 
-            return input;
+            return new List<string> { offerId };
         }
 
         public IList<string> UpdateOfferInput()

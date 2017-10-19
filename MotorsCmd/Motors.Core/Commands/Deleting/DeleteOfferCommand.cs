@@ -2,12 +2,13 @@
 using Motors.Core.Commands.Contracts;
 using Motors.Core.Providers.ConsoleInputProviders.Contracts;
 using Motors.Data;
+using Motors.Models;
 
 namespace Motors.Core.Commands.Deleting
 {
     public class DeleteOfferCommand : ICommand
     {
-        private readonly IMotorSystemContext motorSystemContext;
+        private readonly IMotorSystemContext context;
         private readonly IOfferInputProvider offerInputProvider;
 
         public DeleteOfferCommand(IMotorSystemContext context, IOfferInputProvider offerInputProvider)
@@ -15,17 +16,21 @@ namespace Motors.Core.Commands.Deleting
             Guard.WhenArgument(context, "context").IsNull().Throw();
             Guard.WhenArgument(offerInputProvider, "offerInputProvider").IsNull().Throw();
 
-            this.motorSystemContext = context;
+            this.context = context;
             this.offerInputProvider = offerInputProvider;
         }
 
         public string Execute()
         {
             var input = this.offerInputProvider.RemoveOfferInput();
-            var offerToDeleteId = input[0];
-            // find and delete offer with such id
+            int offerId = int.Parse(input[0]);
 
-            return $"Offer with {offerToDeleteId} was deleted!";
+            var offerToDelete = new Offer { Id = offerId };
+            context.Offers.Attach(offerToDelete);
+            context.Offers.Remove(offerToDelete);
+            context.SaveChanges();
+
+            return $"Offer with ID {offerId} was deleted!";
         }
     }
 }
