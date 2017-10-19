@@ -19,7 +19,7 @@ namespace Motors.Data
 
         public IDbSet<Offer> Offers { get; set; }
 
-        public IDbSet<Comment> Commets { get; set; }
+        public IDbSet<Comment> Comments { get; set; }
 
         public IDbSet<Motorcycle> Motorcycles { get; set; }
 

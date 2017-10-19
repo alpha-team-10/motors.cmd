@@ -51,7 +51,7 @@ namespace Motors.ConsoleClient.Ninject
 
             //input providers
             this.Bind<IOfferInputProvider>().To<OfferInputProvider>();
-
+            this.Bind<ICommentInputProvider>().To<CommentInputProvider>();
             this.Bind<IUserInputProvider>().To<UserInputProvider>();
 
             this.Bind<IMotorcycleInputProvider>().To<MotorcycleInputProvider>();
@@ -62,6 +62,8 @@ namespace Motors.ConsoleClient.Ninject
             this.Bind<ICommand>().To<ListOffersCommand>().Named("listoffers");
             this.Bind<ICommand>().To<DeleteOfferCommand>().Named("deleteoffer");
             this.Bind<ICommand>().To<DetailsOfferCommand>().Named("details");
+
+            this.Bind<ICommand>().To<CreateCommentCommand>().Named("comment");
 
             this.Bind<ICommand>().To<CreateUserCommand>().Named("register");
             this.Bind<ICommand>().To<CreateOfferCommand>().Named("InnerCreateoffer");

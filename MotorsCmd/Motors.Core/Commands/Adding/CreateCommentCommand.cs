@@ -1,5 +1,6 @@
 ﻿using Bytes2you.Validation;
 using Motors.Core.Commands.Contracts;
+using Motors.Core.Factories.Contracts;
 using Motors.Core.Providers.ConsoleInputProviders.Contracts;
 using Motors.Core.Providers.Contracts;
 using Motors.Data;
@@ -12,23 +13,28 @@ namespace Motors.Core.Commands.Adding
     {
         private readonly IMotorSystemContext context;
         private readonly ICommentInputProvider commentInputProvider;
-        //private readonly SOMEMODELFACTORY factory;
+        private readonly IModelFactory factory;
 
-        public CreateCommentCommand(IWriter writer, IMotorSystemContext context/*, SOMEMODELFACTORY factory*/, ICommentInputProvider commentInputProvider)
+        public CreateCommentCommand(IMotorSystemContext context, IModelFactory factory, 
+            ICommentInputProvider commentInputProvider)
         {
             Guard.WhenArgument(context, "context").IsNull().Throw();
+            Guard.WhenArgument(factory, "factory").IsNull().Throw();
             Guard.WhenArgument(commentInputProvider, "commentInputProvider").IsNull().Throw();
-            //Guard.WhenArgument(factory, "factory").IsNull().Throw();
 
             this.context = context;
+            this.factory = factory;
             this.commentInputProvider = commentInputProvider;
-            //this.factory = factory;
         }
         public string Execute()
         {
             var input = this.commentInputProvider.CreateCommentInput();
-            //var comment = this.factory.CreateComment(input);
-            //this.context.Commets.Add(comment);
+
+            int offerId = int.Parse(input[0]);
+            var content = input[1];
+            var comment = this.factory.CreateComment(content);
+            comment.OfferId = offerId;
+            this.context.Comments.Add(comment);
 
             try
             {

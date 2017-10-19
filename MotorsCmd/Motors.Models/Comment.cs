@@ -22,10 +22,5 @@ namespace Motors.Models
         [Required]
         [StringLength(250, MinimumLength = 10, ErrorMessage = "The Comment length cannot be less than 10 or more than 250 symbols long.")]
         public string Content { get; set; }
-
-        public override string ToString()
-        {
-            return this.Content;
-        }
     }
 }

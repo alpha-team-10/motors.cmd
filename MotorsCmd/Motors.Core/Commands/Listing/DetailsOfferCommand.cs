@@ -36,6 +36,11 @@ namespace Motors.Core.Commands.Listing
             sb.AppendLine($"#{offer.Id} {offer.Motorcycle.Model.Name} {offer.Motorcycle.Model.Manufacturer.Name}");
             sb.AppendLine($"{offer.Price}$ , offer available till: {offer.ExpireDate}");
             sb.AppendLine($"Comments: ");
+            var comments = context.Comments.Where(o => o.OfferId == offer.Id).ToList();
+            foreach (var comment in comments)
+            {
+                sb.AppendLine($"{comment.Offer.User.Username}: {comment.Content}");
+            }
 
             sb.AppendLine();
 

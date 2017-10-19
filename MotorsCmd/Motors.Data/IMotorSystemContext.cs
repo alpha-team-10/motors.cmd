@@ -9,7 +9,7 @@ namespace Motors.Data
         IDbSet<Manufacturer> Manufacturers { get; set; }
         IDbSet<Model> Models { get; set; }
         IDbSet<Offer> Offers { get; set; }
-        IDbSet<Comment> Commets { get; set; }
+        IDbSet<Comment> Comments { get; set; }
         IDbSet<Motorcycle> Motorcycles { get; set; }
 
         int SaveChanges();
