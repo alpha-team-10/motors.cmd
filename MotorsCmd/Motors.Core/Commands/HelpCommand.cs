@@ -13,7 +13,18 @@ namespace Motors.Core.Commands
     {
         public string Execute()
         {
-           return "help text for later";
+            var helpCommands = new List<string> {
+                "currentuser - check currently logged user",
+                "login - login with your credentials",
+                "register - register an account",
+                "listoffers - list offers by filtering",
+                "details - more information about an offer by ID",
+                "comment - comment an offer",
+                "deleteoffer - delete offer by ID",
+                "logout - logoff with your user"
+            };
+
+            return string.Join("\n", helpCommands);
         }
     }
 }

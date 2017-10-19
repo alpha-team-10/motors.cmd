@@ -37,6 +37,7 @@ namespace Motors.Core
 
         public void Run()
         {
+            this.memCache.MemoryCache["user"] = -1;
             while (true)
             {
                 try

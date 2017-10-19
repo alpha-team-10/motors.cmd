@@ -62,6 +62,7 @@ namespace Motors.ConsoleClient.Ninject
             this.Bind<ICommand>().To<ListOffersCommand>().Named("listoffers");
             this.Bind<ICommand>().To<DeleteOfferCommand>().Named("deleteoffer");
             this.Bind<ICommand>().To<DetailsOfferCommand>().Named("details");
+            this.Bind<ICommand>().To<CurrentUserCommand>().Named("currentuser");
 
             this.Bind<ICommand>().To<CreateCommentCommand>().Named("comment");
 

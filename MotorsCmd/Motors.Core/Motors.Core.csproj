@@ -64,6 +64,7 @@
     <Compile Include="Commands\ListByTypes.cs" />
     <Compile Include="Commands\Listing\DetailsOfferCommand.cs" />
     <Compile Include="Commands\Listing\ListOffersCommand.cs" />
+    <Compile Include="Commands\Other\CurrentUserCommand.cs" />
     <Compile Include="Commands\Other\LoginUserCommand.cs" />
     <Compile Include="Commands\Other\LogoutUserCommand.cs" />
     <Compile Include="Contracts\IEngine.cs" />
