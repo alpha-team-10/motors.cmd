@@ -8,6 +8,7 @@ namespace Motors.Core.Commands.Listing
 {
     public enum ListByTypes
     {
+        None,
         Model,
         Manufacturer,
         Year,

@@ -39,6 +39,9 @@ namespace Motors.Core.Commands.Listing
             var filtered = new List<Offer>();
             switch (listingType)
             {
+                case ListByTypes.None:
+                    filtered = this.context.Offers.ToList();
+                    break;
                 case ListByTypes.Model:
                     filtered = this.context.Offers.Where(o => o.Motorcycle.Model.Name == value).ToList();
                     break;

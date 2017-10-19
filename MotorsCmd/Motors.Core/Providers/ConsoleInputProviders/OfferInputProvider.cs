@@ -38,30 +38,37 @@ namespace Motors.Core.Providers.ConsoleInputProviders
             var offerPrice = this.reader.Read();
 
             input.Add(offerPrice);
-            
+
             return input;
         }
 
         public IList<string> DetailsOfferInput()
         {
-            throw new NotImplementedException();
+            this.writer.Write("Enter offer ID: ");
+            var offerId = this.reader.Read();
+
+            return new List<string> { offerId };
         }
 
         public IList<string> ListAllOffersInput()
         {
             // concrete username, by model, manufacturers
-            
+
             this.writer.Write("List by:");
             foreach (ListByTypes item in Enum.GetValues(typeof(ListByTypes)))
             {
                 this.writer.Write($"({(int)item}) {item}");
             }
             var choice = int.Parse(this.reader.Read());
-            this.writer.Write("Enter value: ");
-            var value = this.reader.Read();
+            string value = ((int)ListByTypes.None).ToString();
+            if ((ListByTypes)choice != ListByTypes.None)
+            {
+                this.writer.Write("Enter value: ");
+                value = this.reader.Read();
+            }
 
 
-            return new List<string> { ((ListByTypes)choice).ToString(), value};
+            return new List<string> { ((ListByTypes)choice).ToString(), value };
         }
 
         public IList<string> RemoveOfferInput()
