@@ -70,6 +70,7 @@
     <Compile Include="Core\Commands\Adding\CreateCommentCommandTests\Execute_Should.cs" />
     <Compile Include="Core\Commands\Adding\CreateMotorCommandTests\Constructor_Should.cs" />
     <Compile Include="Core\Commands\Adding\CreateOfferCommandTests\Constructor_Should.cs" />
+    <Compile Include="Core\Commands\Adding\CreateUserCommandTests\Execute_Should.cs" />
     <Compile Include="Core\Commands\Deleting\DeleteCommentCommandTests\Constructor_Should.cs" />
     <Compile Include="Core\Commands\Deleting\DeleteMotorCommandTests\Constructor_Should.cs" />
     <Compile Include="Core\Commands\Deleting\DeleteOfferCommandTests\Constructor_Should.cs" />
