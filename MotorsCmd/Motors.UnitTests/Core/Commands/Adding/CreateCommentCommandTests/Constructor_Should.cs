@@ -3,6 +3,7 @@ using Moq;
 using Motors.Core.Commands.Adding;
 using Motors.Core.Factories.Contracts;
 using Motors.Core.Providers.ConsoleInputProviders.Contracts;
+using Motors.Core.Providers.Contracts;
 using Motors.Data;
 
 namespace Motors.UnitTests.Core.Commands.Adding.CreateCommentCommandTests
@@ -17,10 +18,13 @@ namespace Motors.UnitTests.Core.Commands.Adding.CreateCommentCommandTests
             var contextMock = new Mock<IMotorSystemContext>();
             var modelFactoryMock = new Mock<IModelFactory>();
             var providerMock = new Mock<ICommentInputProvider>();
+            var memCacheMock = new Mock<IMemoryCacheProvider>();
+            var dataTimeProvider = new Mock<IDateTimeProvider>();
 
 
             // Act
-            var command = new CreateCommentCommand(contextMock.Object, modelFactoryMock.Object, providerMock.Object);
+            var command = new CreateCommentCommand(contextMock.Object, modelFactoryMock.Object,
+             providerMock.Object, memCacheMock.Object, dataTimeProvider.Object);
 
             // Assert
             Assert.IsNotNull(command);

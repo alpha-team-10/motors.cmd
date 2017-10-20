@@ -69,19 +69,14 @@
     <Compile Include="Core\Commands\Adding\CreateCommentCommandTests\Constructor_Should.cs" />
     <Compile Include="Core\Commands\Adding\CreateCommentCommandTests\Execute_Should.cs" />
     <Compile Include="Core\Commands\Adding\CreateMotorCommandTests\Constructor_Should.cs" />
-    <Compile Include="Core\Commands\Adding\CreateMotorCommandTests\Execute_Should.cs" />
     <Compile Include="Core\Commands\Adding\CreateOfferCommandTests\Constructor_Should.cs" />
-    <Compile Include="Core\Commands\Adding\CreateOfferCommandTests\Execute_Should.cs" />
     <Compile Include="Core\Commands\Deleting\DeleteCommentCommandTests\Constructor_Should.cs" />
-    <Compile Include="Core\Commands\Deleting\DeleteCommentCommandTests\Execute_Should.cs" />
+    <Compile Include="Core\Commands\Deleting\DeleteMotorCommandTests\Constructor_Should.cs" />
     <Compile Include="Core\Commands\Deleting\DeleteOfferCommandTests\Constructor_Should.cs" />
     <Compile Include="Core\Commands\Deleting\DeleteOfferCommandTests\Execute_Should.cs" />
     <Compile Include="Core\Commands\Editing\EditingCommentCommandTests\Constructor_Should.cs" />
-    <Compile Include="Core\Commands\Editing\EditingCommentCommandTests\Execute_Should.cs" />
     <Compile Include="Core\Commands\Editing\EditingMotorCommandTests\Constructor_Should.cs" />
-    <Compile Include="Core\Commands\Editing\EditingMotorCommandTests\Execute_Should.cs" />
     <Compile Include="Core\Commands\Editing\EditingOfferCommandTests\Constructor_Should.cs" />
-    <Compile Include="Core\Commands\Editing\EditingOfferCommandTests\Execute_Should.cs" />
     <Compile Include="Core\Commands\HelpCommandTests\Constructor_Should.cs" />
     <Compile Include="Core\Commands\HelpCommandTests\Execute_Should.cs" />
     <Compile Include="Helpers.cs" />
@@ -105,9 +100,7 @@
       <Name>Motors.Models</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Core\Commands\Deleting\DeleteMotorCommandTests\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
