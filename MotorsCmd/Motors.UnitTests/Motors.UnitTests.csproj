@@ -72,6 +72,7 @@
     <Compile Include="Core\Commands\Adding\CreateMotorCommandTests\Execute_Should.cs" />
     <Compile Include="Core\Commands\Adding\CreateOfferCommandTests\Constructor_Should.cs" />
     <Compile Include="Core\Commands\Adding\CreateOfferCommandTests\Execute_Should.cs" />
+    <Compile Include="Core\Commands\Adding\CreateUserCommandTests\Execute_Should.cs" />
     <Compile Include="Core\Commands\Deleting\DeleteCommentCommandTests\Constructor_Should.cs" />
     <Compile Include="Core\Commands\Deleting\DeleteCommentCommandTests\Execute_Should.cs" />
     <Compile Include="Core\Commands\Deleting\DeleteOfferCommandTests\Constructor_Should.cs" />

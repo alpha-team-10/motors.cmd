@@ -18,7 +18,7 @@ namespace Motors.Core.Commands.Adding
     {
         private readonly IMotorSystemContext context;
         private readonly IUserInputProvider user;
-        private readonly IModelFactory userModel;
+        private readonly IModelFactory modelFactory;
         private readonly IMemoryCacheProvider memCache;
         private readonly IHelperMethods helpers;
 
@@ -33,7 +33,7 @@ namespace Motors.Core.Commands.Adding
 
             this.context = context;
             this.user = user;
-            this.userModel = userModel;
+            this.modelFactory = userModel;
             this.memCache = memCache;
             this.helpers = helpers;
         }
@@ -49,15 +49,13 @@ namespace Motors.Core.Commands.Adding
             var salt = Guid.NewGuid().ToString();
             string saltedPass = this.helpers.GenerateSHA256Hash(password, salt);
 
-            var user = userModel.CreateUser(username, saltedPass, mail, salt);
+            var user = modelFactory.CreateUser(username, saltedPass, mail, salt);
 
             context.Users.Add(user);
 
             context.SaveChanges();
             this.memCache.MemoryCache["user"] = user.Id;
-
-            context.SaveChanges();
-
+            
             return $"User with username {username} was created!";
         }
     }
