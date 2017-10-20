@@ -36,6 +36,9 @@ namespace Motors.ConsoleClient.Ninject
             this.Bind<IHelperMethods>().To<HelperMethods>()
                 .InSingletonScope();
 
+            this.Bind<IDateTimeProvider>().To<DateTimeProvider>()
+                .InSingletonScope();
+
             this.Bind<IMotorSystemContext>().To<MotorSystemContext>();
 
             this.Bind<IEngine>().To<Engine>().InSingletonScope();

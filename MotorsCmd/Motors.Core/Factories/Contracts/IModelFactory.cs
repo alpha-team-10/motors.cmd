@@ -15,6 +15,6 @@ namespace Motors.Core.Factories.Contracts
 
         Motorcycle CreateMotorcycle(Model model, int power, DateTime productionDate, decimal kilometers);
 
-        Comment CreateComment(string content);
+        Comment CreateComment(string content, DateTime date, User author, int offerId);
     }
 }

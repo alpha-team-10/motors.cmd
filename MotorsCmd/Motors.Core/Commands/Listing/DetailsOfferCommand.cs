@@ -39,7 +39,7 @@ namespace Motors.Core.Commands.Listing
             var comments = context.Comments.Where(o => o.OfferId == offer.Id).ToList();
             foreach (var comment in comments)
             {
-                sb.AppendLine($"{comment.Offer.User.Username}: {comment.Content}");
+                sb.AppendLine($"{comment.Date.ToShortDateString()}: {comment.Author.Username}: {comment.Content}");
             }
 
             sb.AppendLine();

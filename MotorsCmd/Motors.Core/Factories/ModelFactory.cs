@@ -10,11 +10,14 @@ namespace Motors.Core.Factories
 {
     public class ModelFactory : IModelFactory
     {
-        public Comment CreateComment(string content)
+        public Comment CreateComment(string content, DateTime date, User author, int offerId)
         {
             return new Comment()
             {
-                Content = content
+                Content = content,
+                Date = date,
+                Author = author,
+                OfferId = offerId
             };
         }
 

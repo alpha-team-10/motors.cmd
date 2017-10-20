@@ -26,16 +26,6 @@ namespace Motors.Models
         public DateTime StartDate { get; set; }
 
         public DateTime ExpireDate { get; set; }
-
-        public override string ToString()
-        {
-            StringBuilder sb = new StringBuilder();
-            sb.AppendLine(this.Motorcycle.ToString());
-            sb.AppendLine(this.Price.ToString());
-            sb.AppendLine("Posted on: " + this.StartDate);
-            sb.AppendLine("Expire on: " + this.ExpireDate);
-            sb.AppendLine("From user: " + this.User.Username);
-            return sb.ToString();
-        }
+        
     }
 }
