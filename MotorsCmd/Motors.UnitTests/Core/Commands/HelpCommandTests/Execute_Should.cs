@@ -10,7 +10,7 @@ namespace Motors.UnitTests.Core.Commands.HelpCommandTests
     public class Execute_Should
     {
         [TestMethod]
-        public void ReturnHelpMessage_WhenExecuted()
+        public void ShowHelpMessage_WhenExecuted()
         {
             // Arrange
             var helpCommand = new HelpCommand();
