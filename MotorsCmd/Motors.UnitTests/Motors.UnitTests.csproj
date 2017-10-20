@@ -96,6 +96,10 @@
       <Project>{11e3c964-85f1-4af2-9282-a53479cc53a7}</Project>
       <Name>Motors.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Motors.Data\Motors.Data.csproj">
+      <Project>{854fc528-af74-442b-b783-4519c2f16753}</Project>
+      <Name>Motors.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />

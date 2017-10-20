@@ -1,5 +1,8 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Moq;
 using Motors.Core.Commands.Deleting;
+using Motors.Core.Providers.Contracts.ConsoleInputProviders;
+using Motors.Data;
 
 namespace Motors.UnitTests.Core.Commands.Deleting.DeleteMotorCommandTests
 {
@@ -9,7 +12,15 @@ namespace Motors.UnitTests.Core.Commands.Deleting.DeleteMotorCommandTests
         [TestMethod]
         public void ReturnInstance_WhenCalled()
         {
-            Assert.IsNotNull(new DeleteMotorCommand());
+            // Arrange
+            var contextMock = new Mock<IMotorSystemContext>();
+            var providerMock = new Mock<IMotorcycleInputProvider>();
+
+            // Act
+            var command = new DeleteMotorCommand(contextMock.Object, providerMock.Object);
+
+            // Assert
+            Assert.IsNotNull(command);
         }
     }
 }

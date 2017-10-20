@@ -1,5 +1,8 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Moq;
 using Motors.Core.Commands.Adding;
+using Motors.Core.Providers.Contracts.ConsoleInputProviders;
+using Motors.Data;
 
 namespace Motors.UnitTests.Core.Commands.Adding.CreateMotorCommandTests
 {
@@ -9,7 +12,15 @@ namespace Motors.UnitTests.Core.Commands.Adding.CreateMotorCommandTests
         [TestMethod]
         public void ReturnInstance_WhenCalled()
         {
-            Assert.IsNotNull(new CreateMotorCommand());
+            // Arrange
+            var contextMock = new Mock<IMotorSystemContext>();
+            var providerMock = new Mock<IMotorcycleInputProvider>();
+            
+            // Act
+            var command = new CreateMotorCommand(contextMock.Object, providerMock.Object);
+
+            // Assert
+            Assert.IsNotNull(command);
         }
     }
 }

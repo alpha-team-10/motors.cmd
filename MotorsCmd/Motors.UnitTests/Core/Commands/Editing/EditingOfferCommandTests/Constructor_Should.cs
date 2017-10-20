@@ -1,5 +1,8 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Moq;
 using Motors.Core.Commands.Editing;
+using Motors.Core.Providers.ConsoleInputProviders.Contracts;
+using Motors.Data;
 
 namespace Motors.UnitTests.Core.Commands.Editing.EditingOfferCommandTests
 {
@@ -9,7 +12,15 @@ namespace Motors.UnitTests.Core.Commands.Editing.EditingOfferCommandTests
         [TestMethod]
         public void ReturnInstance_WhenCalled()
         {
-            Assert.IsNotNull(new EditingOfferCommand());
+            // Arrange
+            var contextMock = new Mock<IMotorSystemContext>();
+            var providerMock = new Mock<IOfferInputProvider>();
+
+            // Act
+            var command = new EditingOfferCommand(contextMock.Object, providerMock.Object);
+
+            // Assert
+            Assert.IsNotNull(command);
         }
     }
 }
