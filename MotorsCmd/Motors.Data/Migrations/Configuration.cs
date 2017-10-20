@@ -79,7 +79,9 @@ namespace Motors.Data.Migrations
 
         private static void ExportToPDF(Motors.Data.MotorSystemContext context)
         {
-            FileStream fs = new FileStream("raw-data/PDF/" + "Document.pdf", FileMode.Create);
+            string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../../raw-data/PDF", "Document.pdf");
+
+            FileStream fs = new FileStream(filePath, FileMode.Create);
 
             // Create an instance of the document class which represents the PDF document itself.
             Document document = new Document(PageSize.A4, 25, 25, 30, 30);

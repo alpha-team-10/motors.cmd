@@ -17,7 +17,7 @@ namespace Motors.UnitTests.Core.Commands.Adding.CreateCommentCommandTests
     public class Execute_Should
     {
         [TestMethod]
-        public void ReturnAddMessageAndCallSaveChanges_WhenExecuted()
+        public void CreateCommentAddMessageAndCallSaveChanges_WhenExecuted()
         {
             // Arrange
             var mockedContext = new Mock<IMotorSystemContext>();
