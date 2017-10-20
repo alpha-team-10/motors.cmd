@@ -21,6 +21,7 @@ namespace Motors.Core.Commands
                 "details - more information about an offer by ID",
                 "comment - comment an offer",
                 "deleteoffer - delete offer by ID",
+                "changepassword - change password of currently logged user",
                 "logout - logoff with your user"
             };
 

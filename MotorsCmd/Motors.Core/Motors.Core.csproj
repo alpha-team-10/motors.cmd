@@ -57,6 +57,7 @@
     <Compile Include="Commands\Deleting\DeleteCommentCommand.cs" />
     <Compile Include="Commands\Deleting\DeleteMotorCommand.cs" />
     <Compile Include="Commands\Deleting\DeleteOfferCommand.cs" />
+    <Compile Include="Commands\Editing\ChangeUserPassword.cs" />
     <Compile Include="Commands\Editing\EditingCommentCommand.cs" />
     <Compile Include="Commands\Editing\EditingMotorCommand.cs" />
     <Compile Include="Commands\Editing\EditingOfferCommand.cs" />

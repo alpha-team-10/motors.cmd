@@ -23,6 +23,7 @@ using System.Runtime.Caching;
 using System.Text;
 using System.Threading.Tasks;
 using Ninject;
+using Motors.Core.Commands.Editing;
 
 namespace Motors.ConsoleClient.Ninject
 {
@@ -66,6 +67,8 @@ namespace Motors.ConsoleClient.Ninject
             this.Bind<ICommand>().To<DeleteOfferCommand>().Named("deleteoffer");
             this.Bind<ICommand>().To<DetailsOfferCommand>().Named("details");
             this.Bind<ICommand>().To<CurrentUserCommand>().Named("currentuser");
+
+            this.Bind<ICommand>().To<ChangeUserPassword>().Named("changepassword");
 
             this.Bind<ICommand>().To<CreateCommentCommand>().Named("comment");
 
