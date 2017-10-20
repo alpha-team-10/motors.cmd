@@ -6,10 +6,10 @@ namespace Motors.UnitTests.Core.Commands.Adding.CreateOfferCommandTests
     [TestClass]
     public class Constructor_Should
     {
-        [TestMethod]
-        public void ReturnInstance_WhenCalled()
-        {
-            Assert.IsNotNull(new CreateCommentCommand());
-        }
+        //[TestMethod]
+        //public void ReturnInstance_WhenCalled()
+        //{
+        //    Assert.IsNotNull(new CreateCommentCommand());
+        //}
     }
 }

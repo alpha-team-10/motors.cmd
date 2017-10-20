@@ -63,6 +63,7 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Caching" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Core\Commands\Adding\CreateCommentCommandTests\Constructor_Should.cs" />
@@ -73,8 +74,6 @@
     <Compile Include="Core\Commands\Adding\CreateOfferCommandTests\Execute_Should.cs" />
     <Compile Include="Core\Commands\Deleting\DeleteCommentCommandTests\Constructor_Should.cs" />
     <Compile Include="Core\Commands\Deleting\DeleteCommentCommandTests\Execute_Should.cs" />
-    <Compile Include="Core\Commands\Deleting\DeleteMotorCommandTests\Constructor_Should.cs" />
-    <Compile Include="Core\Commands\Deleting\DeleteMotorCommandTests\Execute_Should.cs" />
     <Compile Include="Core\Commands\Deleting\DeleteOfferCommandTests\Constructor_Should.cs" />
     <Compile Include="Core\Commands\Deleting\DeleteOfferCommandTests\Execute_Should.cs" />
     <Compile Include="Core\Commands\Editing\EditingCommentCommandTests\Constructor_Should.cs" />
@@ -85,6 +84,7 @@
     <Compile Include="Core\Commands\Editing\EditingOfferCommandTests\Execute_Should.cs" />
     <Compile Include="Core\Commands\HelpCommandTests\Constructor_Should.cs" />
     <Compile Include="Core\Commands\HelpCommandTests\Execute_Should.cs" />
+    <Compile Include="Helpers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -96,8 +96,18 @@
       <Project>{11e3c964-85f1-4af2-9282-a53479cc53a7}</Project>
       <Name>Motors.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Motors.Data\Motors.Data.csproj">
+      <Project>{854FC528-AF74-442B-B783-4519C2F16753}</Project>
+      <Name>Motors.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motors.Models\Motors.Models.csproj">
+      <Project>{766ED3EB-966D-4E54-97BC-FE0BA56101CB}</Project>
+      <Name>Motors.Models</Name>
+    </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Core\Commands\Deleting\DeleteMotorCommandTests\" />
+  </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

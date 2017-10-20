@@ -50,7 +50,7 @@ namespace Motors.Core
 
                     string successMsg = commandProcessor.ProcessCommand(commandAsString);
                     this.writer.Write(successMsg);
-                    
+
                 }
                 catch (ArgumentOutOfRangeException ex)
                 {

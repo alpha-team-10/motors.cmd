@@ -92,6 +92,14 @@
     <Compile Include="Migrations\201710192003317_Add many offers to user.Designer.cs">
       <DependentUpon>201710192003317_Add many offers to user.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710200640026_add user and date to Comment.cs" />
+    <Compile Include="Migrations\201710200640026_add user and date to Comment.Designer.cs">
+      <DependentUpon>201710200640026_add user and date to Comment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710200656394_min length 1 to comments.cs" />
+    <Compile Include="Migrations\201710200656394_min length 1 to comments.Designer.cs">
+      <DependentUpon>201710200656394_min length 1 to comments.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MotorSystemContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -127,6 +135,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710192003317_Add many offers to user.resx">
       <DependentUpon>201710192003317_Add many offers to user.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710200640026_add user and date to Comment.resx">
+      <DependentUpon>201710200640026_add user and date to Comment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710200656394_min length 1 to comments.resx">
+      <DependentUpon>201710200656394_min length 1 to comments.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

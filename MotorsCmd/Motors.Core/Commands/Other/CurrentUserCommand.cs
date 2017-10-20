@@ -27,16 +27,17 @@ namespace Motors.Core.Commands.Other
         public string Execute()
         {
             int currentUserId = int.Parse(this.cache.MemoryCache["user"].ToString());
+            string message;
             if (currentUserId > 0)
             {
                 var username = this.context.Users.Find(currentUserId).Username;
-                return $"You are currently logged with -> {username}";
+                message =  $"You are currently logged with -> {username}";
             }
             else
             {
-                return "no user logged";
+                message = "There is Not currently logged user!";
             }
-
+            return message;
         }
     }
 }

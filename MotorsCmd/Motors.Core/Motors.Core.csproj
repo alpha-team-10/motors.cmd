@@ -82,6 +82,7 @@
     <Compile Include="Providers\ConsoleInputProviders\Contracts\IUserInputProvider.cs" />
     <Compile Include="Providers\ConsoleInputProviders\Contracts\IMotorcycleInputProvider.cs" />
     <Compile Include="Providers\Contracts\IHelperMethods.cs" />
+    <Compile Include="Providers\DateTimeProvider.cs" />
     <Compile Include="Providers\HelperMethods.cs" />
     <Compile Include="Providers\ConsoleInputProviders\MotorcycleInputProvider.cs" />
     <Compile Include="Providers\ConsoleInputProviders\OfferInputProvider.cs" />
@@ -93,6 +94,7 @@
     <Compile Include="Providers\Contracts\IMemoryCacheProvider.cs" />
     <Compile Include="Providers\Contracts\IReader.cs" />
     <Compile Include="Providers\Contracts\IWriter.cs" />
+    <Compile Include="Providers\Contracts\IDateTimeProvider.cs" />
     <Compile Include="Providers\MemoryCacheProvider.cs" />
   </ItemGroup>
   <ItemGroup />
