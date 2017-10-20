@@ -1,3 +1,5 @@
+using iTextSharp.text;
+using iTextSharp.text.pdf;
 using Motors.Models;
 using System;
 using System.Collections;
@@ -36,6 +38,7 @@ namespace Motors.Data.Migrations
             //ExtractFromJSON();
             ExtractFromXML();
 
+            ExportToPDF(context);
         }
 
         private static void ExtractFromXML()
@@ -72,6 +75,55 @@ namespace Motors.Data.Migrations
                 context.SaveChanges();
                 Console.WriteLine("models and manufacturers populated with XML");
             }
+        }
+
+        private static void ExportToPDF(Motors.Data.MotorSystemContext context)
+        {
+            FileStream fs = new FileStream("raw-data/PDF/" + "Document.pdf", FileMode.Create);
+
+            // Create an instance of the document class which represents the PDF document itself.
+            Document document = new Document(PageSize.A4, 25, 25, 30, 30);
+            // Create an instance to the PDF file by creating an instance of the PDF 
+            // Writer class using the document and the filestrem in the constructor.
+            PdfWriter writer = PdfWriter.GetInstance(document, fs);
+
+            // Add meta information to the document
+            document.AddAuthor("Team X");
+            document.AddCreator("Console application using iTextSharp");
+            document.AddKeywords("PDF testing");
+            document.AddSubject("Document subject - Extracting things from database");
+            document.AddTitle("The document title - PDF creation using iTextSharp");
+
+            // Open the document to enable you to write to the document
+            document.Open();
+            // Add a simple and wellknown phrase to the document in a flow layout manner
+            document.Add(new Paragraph("Team X Manufacturers and Models"));
+            
+            var allModels = context.Models.ToList();
+            var allManufacturers = context.Manufacturers.ToList();
+            
+            string data = "";
+        
+            foreach (var manufacturer in allManufacturers)
+            {
+                data += manufacturer.Name + ":\n";
+                
+                foreach (var model in allModels)
+                {
+                    data += "       " + model.Name + "\n";
+                }
+
+                data += "\n";
+            }
+
+            document.Add(new Paragraph(data));
+            
+            // Close the document
+            document.Close();
+            // Close the writer instance
+            writer.Close();
+            // Always close open filehandles explicity
+            fs.Close();
         }
     }
 }

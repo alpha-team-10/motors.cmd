@@ -1,10 +1,10 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using Motors.Core.Commands.Adding;
+using Motors.Core.Commands.Deleting;
 using Motors.Core.Providers.Contracts.ConsoleInputProviders;
 using Motors.Data;
 
-namespace Motors.UnitTests.Core.Commands.Adding.CreateMotorCommandTests
+namespace Motors.UnitTests.Core.Commands.Deleting.DeleteMotorCommandTests
 {
     [TestClass]
     public class Constructor_Should
@@ -15,9 +15,9 @@ namespace Motors.UnitTests.Core.Commands.Adding.CreateMotorCommandTests
             // Arrange
             var contextMock = new Mock<IMotorSystemContext>();
             var providerMock = new Mock<IMotorcycleInputProvider>();
-            
+
             // Act
-            var command = new CreateMotorCommand(contextMock.Object, providerMock.Object);
+            var command = new DeleteMotorCommand(contextMock.Object, providerMock.Object);
 
             // Assert
             Assert.IsNotNull(command);
